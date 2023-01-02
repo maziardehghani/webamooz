@@ -2,8 +2,12 @@
 
 namespace Modules\Category\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Category\Models\Category;
+use Modules\Category\Policies\categoryPolicy;
+use Modules\RolePermissions\Models\Permission;
 
 class CategoryServiceProvider extends ServiceProvider
 {
@@ -28,7 +32,11 @@ class CategoryServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-
+        Gate::before(function ($user)
+        {
+            return $user->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN) ? true : null;
+        });
+         Gate::policy(Category::class , categoryPolicy::class);
         $this->app->booted(function ()
         {
             config()->set('sidebar.item.category',
@@ -36,6 +44,7 @@ class CategoryServiceProvider extends ServiceProvider
                     'icon' => 'i-categories',
                     'title' => 'دسته بندی ها',
                     'url' => route('dashboard.categories'),
+                    'permission' => Permission::PERMISSION_MANAGE_CATEGORIES,
                 ]
             );
         });
@@ -51,6 +60,7 @@ class CategoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
     }
 
     /**

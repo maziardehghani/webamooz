@@ -13,6 +13,6 @@
                 </div>
             </div>
         </div>
-        <a href="" class="logout" title="خروج"></a>
+        <a href="{{route('dashboard.users.logout')}}" class="logout" title="خروج"></a>
     </div>
 </div>

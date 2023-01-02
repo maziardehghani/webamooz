@@ -1,7 +1,10 @@
 <?php
 return [
     'item'=>[
-        'dashboard',
-        'Category',
+        'dashboard' => [],
+        'category' => [],
+        'courses' => [],
+        'rolePermissions' => [],
+        'user' => [],
     ]
 ];

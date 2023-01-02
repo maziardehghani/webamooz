@@ -4,6 +4,7 @@ namespace Modules\Dashboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\RolePermissions\Models\Permission;
 
 class DashboardServiceProvider extends ServiceProvider
 {

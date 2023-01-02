@@ -16,4 +16,3 @@ Route::prefix('dashboard')->middleware(['auth'])->name('dashboard.')->group(func
     Route::delete('categories/destroy/{category}' , [CategoriesController::class , 'destroy'])->name('categories.destroy');
 
 });
-

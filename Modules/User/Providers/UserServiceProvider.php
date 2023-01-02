@@ -2,8 +2,15 @@
 
 namespace Modules\User\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
+use Modules\RolePermissions\Models\Permission;
+use Modules\User\Database\Seeders\UserTableSeeders;
+use Modules\User\Http\Middleware\StoreUser;
+use Modules\User\Models\User;
+use Modules\User\policies\UserPolicy;
 
 class UserServiceProvider extends ServiceProvider
 {
@@ -25,9 +32,39 @@ class UserServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerTranslations();
+        $this->loadJsonTranslationsFrom( __DIR__ .'/../Resources/lang');
+
+
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+        Gate::before(function ($user)
+        {
+            return $user->hasPermissionTo(Permission::PERMISSION_SUPER_ADMIN) ? true :null;
+        });
+        Gate::policy(User::class , UserPolicy::class);
+
+        $this->app->booted(function ()
+        {
+            config()->set('sidebar.item.user',
+                [
+                    'icon' => 'i-users',
+                    'title' => 'کاربران',
+                    'url' => route('dashboard.users'),
+                ]
+            );
+            config()->set('sidebar.item.profile',
+                [
+                    'icon' => 'i-users__information',
+                    'title' => 'اطلاعات کاربری',
+                    'url' => route('dashboard.users.profile'),
+                    'permission' => Permission::PERMISSION_MANAGE_USERS,
+                ]
+            );
+
+        });
+
     }
 
     /**
@@ -38,6 +75,8 @@ class UserServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app['router']->pushMiddlewareToGroup('web' , StoreUser::class);
     }
 
     /**

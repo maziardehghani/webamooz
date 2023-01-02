@@ -3,16 +3,19 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Modules\User\Database\Seeders\RolePermissionSeeders;
+use Modules\User\Database\Seeders\UserTableSeeders;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
+
+    static $seeders = [RolePermissionSeeders::class ,UserTableSeeders::class ];
     public function run()
     {
-        // User::factory(10)->create();
+        foreach (self::$seeders as $seeder)
+        {
+            $this->call($seeder);
+        }
+
     }
 }

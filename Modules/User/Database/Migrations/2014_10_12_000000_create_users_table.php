@@ -15,17 +15,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('image_id')->nullable();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('username' , 40)->nullable();
             $table->string('mobile' , 14)->nullable();
-            $table->string('headline')->nullable();
-            $table->text('bio')->nullable();
+            $table->string('cardNumber' , 16)->nullable();
+            $table->string('shaba', 24)->nullable();
             $table->string('telegram')->nullable();
             $table->string('whatsapp')->nullable();
-            $table->string('linkedin')->nullable();
+            $table->string('ip')->nullable();
             $table->string('facebook')->nullable();
-            $table->enum('status' , ['active' , 'inactive' , 'ban'])->nullable();
+            $table->enum('status' , \Modules\User\Models\User::$statuses)->nullable();
+            $table->foreign('image_id')->references('id')->on('media')->onDelete('set null');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

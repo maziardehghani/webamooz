@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-
+use Modules\User\Http\Controllers\UserController;
 use Modules\User\Actions\verificationCode;
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +13,22 @@ use Modules\User\Actions\verificationCode;
 |
 */
 
-Route::get('/', function () {
-    return view('user::home.index');
-})->name('home');
-
-
-Route::get('logout_test' , function ()
-{
-    auth()->logout();
-});
-
 Route::post('/email/verify/' , [verificationCode::class , 'verify'])->name('verification.verify')->middleware('auth');
+
+
+
+Route::prefix('dashboard')->middleware(['auth'])->name('dashboard.')->group(function (){
+    Route::get('users' , [UserController::class , 'index'])->name('users');
+    Route::get('users/create' , [UserController::class , 'create'])->name('users.create');
+    Route::post('users/store' , [UserController::class , 'store'])->name('users.store');
+    Route::get('users/edit/{user}' , [UserController::class , 'edit'])->name('users.edit');
+    Route::put('users/update/{user}' , [UserController::class , 'update'])->name('users.update');
+    Route::delete('users/destroy/{user}' , [UserController::class , 'destroy'])->name('users.destroy');
+    Route::post('users/addPermission/{user}' , [UserController::class , 'addPermission'])->name('users.addPermission');
+    Route::get('users/removePermission/{userPermission}/{user}' , [UserController::class , 'removePermission'])->name('users.removePermission');
+    Route::patch('users/verifyEmail/{user}' , [UserController::class , 'verifyEmail'])->name('users.verifyEmail');
+    Route::post('users/photo' , [UserController::class , 'UpdateUserPhoto'])->name('users.photo');
+    Route::get('users/profile' , [UserController::class , 'UserProfile'])->name('users.profile');
+    Route::post('users/profile' , [UserController::class , 'UpdateUserProfile'])->name('users.profile.update');
+    Route::any('users/logout' , [UserController::class , 'logout'])->name('users.logout');
+});
