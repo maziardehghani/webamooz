@@ -1,0 +1,8 @@
+{
+    "success" : " موفق",
+    "failed" : " ناموفق",
+    "pending" : "در حال انتظار",
+    "rejected" : "رد شده",
+    "settled" : "تسویه شده",
+    "cancelled" : "لغو شده"
+}

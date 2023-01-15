@@ -1,0 +1,13 @@
+{
+    "User": true,
+    "Dashboard": true,
+    "Category": true,
+    "RolePermissions": true,
+    "Coures": true,
+    "Course": true,
+    "Media": true,
+    "Common": true,
+    "Front": true,
+    "Payment": true,
+    "Discount": true
+}
