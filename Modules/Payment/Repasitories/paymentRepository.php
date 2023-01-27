@@ -15,9 +15,9 @@ class paymentRepository
     {
         $this->query = Payment::query();
     }
-    public static function store($data)
+    public static function store($data , $discount=null)
     {
-        return Payment::create([
+        $payment = Payment::create([
             'buyer_id'=> $data['buyer_id'],
             'seller_id' =>$data['seller_id'],
             'paymentable_id'=>$data['paymentable_id'],
@@ -30,6 +30,13 @@ class paymentRepository
             'seller_share'=>$data['seller_share'],
             'site_share'=>$data['site_share'],
         ]);
+
+        if (! is_null($discount))
+        {
+            $payment->discounts()->sync($discount);
+        }
+        return $payment;
+
     }
     public function findByAuthority($Authority)
     {
@@ -136,4 +143,10 @@ class paymentRepository
 
         return Payment::query()->where('buyer_id' , $seller->id)->get();
     }
+
+    public function myShops()
+    {
+        return Payment::query()->where('buyer_id' , auth()->id())->latest()->paginate();
+    }
+
 }

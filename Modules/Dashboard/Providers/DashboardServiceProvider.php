@@ -2,11 +2,8 @@
 
 namespace Modules\Dashboard\Providers;
 
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Modules\Dashboard\Http\Controllers\DashboardController;
-use Modules\RolePermissions\Models\Permission;
+use Illuminate\Support\ServiceProvider;
 
 class DashboardServiceProvider extends ServiceProvider
 {

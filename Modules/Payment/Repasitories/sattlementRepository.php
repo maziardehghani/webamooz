@@ -4,9 +4,7 @@ namespace Modules\Payment\Repasitories;
 
 
 
-use Modules\Payment\Models\Payment;
 use Modules\Payment\Models\Sattlement;
-use Modules\RolePermissions\Models\Permission;
 
 class sattlementRepository
 {

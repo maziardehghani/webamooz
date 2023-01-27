@@ -3,9 +3,6 @@
 namespace Modules\Course\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use Modules\Course\Models\courses;
-use Modules\Course\Rules\ValidTeacher;
 
 class SeasonRequest extends FormRequest
 {

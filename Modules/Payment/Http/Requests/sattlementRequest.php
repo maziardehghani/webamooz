@@ -3,9 +3,6 @@
 namespace Modules\Payment\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Validation\Rule;
-use Modules\Payment\Models\Sattlement;
 use Modules\Payment\Services\SattlementService;
 
 class sattlementRequest extends FormRequest

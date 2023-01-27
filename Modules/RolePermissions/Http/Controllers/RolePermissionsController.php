@@ -2,14 +2,12 @@
 
 namespace Modules\RolePermissions\Http\Controllers;
 
-use Modules\RolePermissions\Http\Requests\RoleRequest;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Modules\RolePermissions\Http\Requests\RoleRequest;
 use Modules\RolePermissions\Http\Requests\RoleUpdateRequest;
+use Modules\RolePermissions\Models\Role;
 use Modules\RolePermissions\Repository\PermissionRepository;
 use Modules\RolePermissions\Repository\RoleRepository;
-use Spatie\Permission\Models\Permission;
-use Modules\RolePermissions\Models\Role;
 
 class RolePermissionsController extends Controller
 {

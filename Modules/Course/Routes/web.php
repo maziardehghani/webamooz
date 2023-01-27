@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Course\Http\Controllers\CourseController;
-use Modules\Course\Http\Controllers\SeasonController;
 use Modules\Course\Http\Controllers\lessonController;
-use Modules\RolePermissions\Models\Permission;
+use Modules\Course\Http\Controllers\SeasonController;
 
 Route::prefix('dashboard')->name('dashboard.')->group(function (){
 
@@ -25,7 +24,7 @@ Route::prefix('dashboard')->name('dashboard.')->group(function (){
     Route::post('seasons/store/{course}' , [SeasonController::class , 'store'])->name('seasons.store');
     Route::get('seasons/edit/{season}' , [SeasonController::class , 'edit'])->name('seasons.edit');
     Route::put('seasons/update/{season}' , [SeasonController::class , 'update'])->name('seasons.update');
-    Route::delete('seasons/destroy/{season}' , [SeasonController::class , 'destroy'])->name('seasons.destroy');
+    Route::get('seasons/destroy/{season}' , [SeasonController::class , 'destroy'])->name('seasons.destroy');
     Route::patch('seasons/{season}/accept' , [SeasonController::class , 'accept'])->name('seasons.accept');
     Route::patch('seasons/{season}/reject' , [SeasonController::class , 'reject'])->name('seasons.reject');
     ///lessonController routes

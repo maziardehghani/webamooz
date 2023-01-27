@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Modules\User\Database\Seeders\RolePermissionSeeders;
 use Modules\User\Models\User;
 use Modules\User\Services\VerifyCodeService;

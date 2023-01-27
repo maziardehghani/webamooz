@@ -2,16 +2,15 @@
 
 namespace Modules\Payment\Providers;
 
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
-use Modules\Payment\Models\Sattlement;
-use Modules\Payment\Policies\SattlementPolicy;
-use Modules\Payment\Providers\EventServiceProvider;
 use Modules\Payment\GateWays\ZarinPal\GateWay;
 use Modules\Payment\GateWays\ZarinPal\ZarinpalAdaptor;
 use Modules\Payment\Models\Payment;
+use Modules\Payment\Models\Sattlement;
 use Modules\Payment\Policies\PaymentsPolicy;
+use Modules\Payment\Policies\SattlementPolicy;
 use Modules\RolePermissions\Models\Permission;
 
 class PaymentServiceProvider extends ServiceProvider

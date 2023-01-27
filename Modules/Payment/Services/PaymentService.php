@@ -9,7 +9,7 @@ use Modules\User\Models\User;
 
 class PaymentService
 {
-    public static function generate($amount , $paymentable , User $buyer , $seller_id = null)
+    public static function generate($amount , $paymentable , User $buyer , $seller_id = null , $discount = null)
     {
         if ($amount <= 0 || is_null($paymentable->id) || is_null($buyer->id))
             return false;
@@ -19,7 +19,7 @@ class PaymentService
 
         if (is_array($invoice_id))
         {
-            dd($invoice_id);
+            return false;
         }
 
         if (!is_null($paymentable->percent))
@@ -45,7 +45,7 @@ class PaymentService
             'seller_percent'=> $seller_percent,
             'seller_share'=>$seller_share,
             'site_share'=>$site_share,
-        ]);
+        ] , $discount);
     }
 
 }

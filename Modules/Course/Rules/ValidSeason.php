@@ -4,7 +4,6 @@ namespace Modules\Course\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 use Modules\Course\Repository\SeasonRepository;
-use Modules\User\Repositories\UserRepository;
 
 class ValidSeason implements Rule
 {

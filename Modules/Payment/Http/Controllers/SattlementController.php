@@ -3,7 +3,6 @@
 namespace Modules\Payment\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Modules\Payment\Events\SattlementStatusChanged;
 use Modules\Payment\Events\settledUserRequest;
 use Modules\Payment\Http\Requests\sattlementRequest;
@@ -63,7 +62,6 @@ class SattlementController extends Controller
     public function settled($sattlement_id)
     {
         $this->authorize('rejectAndAccept' , Sattlement::class);
-
         $this->sattlementRepository->settled($sattlement_id);
         return redirect()->to(route('dashboard.sattlement.index'));
     }

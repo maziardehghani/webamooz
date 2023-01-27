@@ -2,22 +2,19 @@
 
 namespace Modules\Course\Http\Controllers;
 
-use Illuminate\Auth\Access\Gate;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Modules\Category\Repository\CategoryRepository;
+use Modules\Course\Events\CourseStatusChangedEvent;
 use Modules\Course\Http\Requests\CourseRequest;
 use Modules\Course\Models\courses;
-use Modules\Course\Policies\couresPolicy;
 use Modules\Course\Repository\CourseRepository;
 use Modules\Course\Repository\LessonRepository;
-use Modules\Media\Providers\MediaServiceProvider;
 use Modules\Media\Services\MediaFileService;
 use Modules\Payment\GateWays\ZarinPal\GateWay;
 use Modules\Payment\Repasitories\paymentRepository;
 use Modules\Payment\Services\PaymentService;
 use Modules\RolePermissions\Models\Permission;
 use Modules\User\Repositories\UserRepository;
-use App\Http\Controllers\Controller;
 
 class CourseController extends Controller
 {
@@ -25,13 +22,16 @@ class CourseController extends Controller
     private $categoryRepository;
     private $courseRepository;
     private $lessonRepository;
+    private $paymentRepository;
+    private $checkCode;
 
-    public function __construct(UserRepository $userRepository , CategoryRepository $categoryRepository , CourseRepository $courseRepository , LessonRepository $lessonRepository)
+    public function __construct(UserRepository $userRepository , CategoryRepository $categoryRepository , CourseRepository $courseRepository , LessonRepository $lessonRepository , paymentRepository $paymentRepository)
     {
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
         $this->courseRepository = $courseRepository;
         $this->lessonRepository = $lessonRepository;
+        $this->paymentRepository = $paymentRepository;
     }
 
     public function index()
@@ -111,13 +111,17 @@ class CourseController extends Controller
     public function accept($id)
     {
         $this->authorize('change_confirmation_status' , courses::class);
-        $this->courseRepository->UpdateConfirmStatus($id , courses::CONFIRMATION_STATUS_ACCEPTED);
+        $course = $this->courseRepository->findById($id);
+        $this->courseRepository->UpdateConfirmStatus($course , courses::CONFIRMATION_STATUS_ACCEPTED);
+        event(new CourseStatusChangedEvent($course , courses::CONFIRMATION_STATUS_ACCEPTED));
         return redirect(route('dashboard.courses'));
     }
     public function reject($id)
     {
         $this->authorize('change_confirmation_status' , courses::class);
-        $this->courseRepository->UpdateConfirmStatus($id , courses::CONFIRMATION_STATUS_REJECTED);
+        $course = $this->courseRepository->findById($id);
+        $this->courseRepository->UpdateConfirmStatus($course , courses::CONFIRMATION_STATUS_REJECTED);
+        event(new CourseStatusChangedEvent($course , courses::CONFIRMATION_STATUS_REJECTED));
         return redirect(route('dashboard.courses'));
     }
     public function lock($id)
@@ -133,19 +137,18 @@ class CourseController extends Controller
         $course = $courseRepository->findById($id);
         $this->authorize('edit' , $course);
 
-
         if ($course->banner)
         {
             $course->banner->delete();
         }
         $course->delete();
         return redirect(route('dashboard.courses'));
-
     }
     public function buy($course_id)
     {
 
         $course = $this->courseRepository->findById($course_id);
+
         if (!$this->courseCanPurchased($course))
         {
             return back();
@@ -156,13 +159,21 @@ class CourseController extends Controller
             return back();
         }
         $amount = $course->FinalPrice();
+
+
+        if ($course->checkCode(request()->get('code')))
+        {
+            $this->checkCode = $course->checkCode(request()->get('code'));
+            $amount = $course->FinalPrice();
+        }
+
         if ($amount <= 0 )
         {
             $this->courseRepository->addStudentToCourse($course , auth()->id());
 //            newFeedback('عملیات موفقیت امیز' , 'دوره مورد نظر با موفقیت خریداری شد' , 'success');
             return redirect()->to($course->path());
         }
-        $payment = PaymentService::generate($amount , $course , auth()->user() , $course->teacher_id);
+        $payment = PaymentService::generate($amount , $course , auth()->user() , $course->teacher_id , $this->checkCode);
 
         resolve(GateWay::class)->redirect($payment->invoice_id);
     }
@@ -171,17 +182,17 @@ class CourseController extends Controller
     {
         if ($course->confirmation_status == courses::CONFIRMATION_STATUS_REJECTED)
         {
-            dd('عملیات ناموفق' , 'این دوره قابل خریداری نیست!' , 'error');
+//            newFeedback('عملیات ناموفق' , 'این دوره قابل خریداری نیست!' , 'error');
             return false;
         }
         if ($course->status == courses::STATUS_LOCK)
         {
-            dd('عملیات ناموفق' , 'این دوره قابل خریداری نیست!' , 'error');
+//            newFeedback('عملیات ناموفق' , 'این دوره قابل خریداری نیست!' , 'error');
             return false;
         }
         if ($course->type == courses::TYPE_FREE)
         {
-            dd('عملیات ناموفق' , 'این دوره رایگان است!' , 'error');
+//            newFeedback('عملیات ناموفق' , 'این دوره رایگان است!' , 'error');
             return false;
         }
 

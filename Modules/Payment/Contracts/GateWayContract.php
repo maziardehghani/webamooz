@@ -2,7 +2,6 @@
 
 namespace Modules\Payment\Contracts;
 
-use Illuminate\Http\Request;
 use Modules\Payment\Models\Payment;
 
 interface GateWayContract

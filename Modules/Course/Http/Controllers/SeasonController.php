@@ -32,4 +32,11 @@ class SeasonController extends Controller
         $this->seasonRepository->update($seasonId , $request);
         return redirect()->back();
     }
+    public function destroy($lesson_id)
+    {
+        $season = $this->seasonRepository->findById($lesson_id);
+        $this->authorize('deleteLesson' , $season);
+        $season->delete();
+        return redirect()->back();
+    }
 }

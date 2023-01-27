@@ -22,7 +22,8 @@
                 <td><a href="">{{$season->title}}</a></td>
                 <td>
                     @can(\Modules\RolePermissions\Models\Permission::PERMISSION_MANAGEMENT)
-                    <a href="" class="item-delete mlg-15"  title="حذف"></a>
+
+                    <a href="{{route('dashboard.seasons.destroy' , $season->id)}}" class="item-delete mlg-15"  title="حذف"></a>
                     <a href="" class="item-reject mlg-15" title="رد"></a>
                     <a href="" class="item-confirm mlg-15" title="تایید"></a>
                     @endcan

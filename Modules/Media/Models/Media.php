@@ -11,6 +11,21 @@ class Media extends Model
 {
     use HasFactory;
 
+
+
+    const IMAGE_TYPE = '' ;
+    const VIDEO_TYPE = '' ;
+    const AUDIO_TYPE = '' ;
+
+    public static $types = [
+        self::IMAGE_TYPE,
+        self::AUDIO_TYPE,
+        self::VIDEO_TYPE
+    ];
+
+
+
+
     protected $casts = [
         'files' => 'json'
     ];
@@ -25,6 +40,10 @@ class Media extends Model
     public function getThumbAttribute()
     {
         return '/storage/'.$this->files[300];
+    }
+    public function getOriginalAttribute()
+    {
+        return '/storage/'.$this->files['original'];
     }
     public static function getExtensions()
     {

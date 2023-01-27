@@ -5,7 +5,6 @@ namespace Modules\Course\Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 use Modules\Category\Models\Category;
 use Modules\Course\Models\courses;
 use Modules\Course\Models\lesson;

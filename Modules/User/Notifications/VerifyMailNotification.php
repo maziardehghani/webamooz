@@ -3,7 +3,6 @@
 namespace Modules\User\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Modules\User\Mail\verifyCodeMail;
 use Modules\User\Services\VerifyCodeService;
@@ -45,8 +44,7 @@ class VerifyMailNotification extends Notification
 
         VerifyCodeService::store($notifiable->id , $code);
 
-        return (new verifyCodeMail($code))
-            ->to($notifiable->email);
+        return (new verifyCodeMail($code))->to($notifiable->email);
     }
 
     /**

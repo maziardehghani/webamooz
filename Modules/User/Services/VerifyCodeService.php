@@ -2,8 +2,6 @@
 
 namespace Modules\User\Services;
 
-use function Symfony\Component\Translation\t;
-
 class VerifyCodeService
 {
     private static $min = 100000 ;

@@ -2,9 +2,9 @@
 
 namespace Modules\Category\Providers;
 
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 use Modules\Category\Models\Category;
 use Modules\Category\Policies\categoryPolicy;
 use Modules\RolePermissions\Models\Permission;

@@ -132,7 +132,7 @@
                     <div class="user-menu-account-dropdown">
                         <ul>
                             <li><a href="{{route('dashboard.users.profile')}}">مشاهده پروفایل</a></li>
-                            <li><a href="">خرید های من</a></li>
+                            <li><a href="{{route('dashboard.myShop.index')}}">خرید های من</a></li>
                             <li><a href="{{route('dashboard')}}">داشبورد</a></li>
                             <li><a href="{{route('dashboard.users.logout')}}">خروج</a></li>
                         </ul>
@@ -163,8 +163,9 @@
             <div><a class="btn-register" href="{{route('register')}}">ثبت نام</a></div>
         </div>
         <div class="container">
-            @foreach($categories as $category)
                 <ul class="nav">
+                    @foreach($categories as $category)
+
                     <li class="main-menu {{count($category->subCategory) ? 'has-sub' : ''}}"><a href="{{$category->path()}}">{{$category->title}}</a>
                         @if(count($category->subCategory))
                         @endif
@@ -177,23 +178,8 @@
                         </div>
                         <div class="triangle"></div>
                     </li>
-                    <li class="main-menu"><a href="#">گرافیک</a></li>
-                    <li class="main-menu has-sub"><a href="#">چندرسانه ای</a>
-                        <div class="sub-menu">
-                            <div class="container">
-                                <div><a href="#">فیلم و صدا</a></div>
-                                <div><a href="#">بازی سازی</a></div>
-                            </div>
-                        </div>
-                        <div class="triangle"></div>
-                    </li>
-                    <li class="main-menu"><a href="#">کسب و کار</a></li>
-                    <li class="main-menu d-none"><a href="#">درباره ما</a></li>
-                    <li class="main-menu"><a href="contact-us.html">تماس ما</a></li>
-                    <li class="main-menu join-teachers-li"><a href="become-a-teacher.html">تدریس در وب آموز</a></li>
-                    <li class="main-menu"><a href="https://www.webamooz.net/blog">مقالات</a></li>
-                </ul>
-            @endforeach
+                    @endforeach
+                   </ul>
 
 
             <div class="dark-light">

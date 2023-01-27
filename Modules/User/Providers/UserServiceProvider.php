@@ -2,12 +2,10 @@
 
 namespace Modules\User\Providers;
 
-use Database\Seeders\DatabaseSeeder;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Modules\RolePermissions\Models\Permission;
-use Modules\User\Database\Seeders\UserTableSeeders;
 use Modules\User\Http\Middleware\StoreUser;
 use Modules\User\Models\User;
 use Modules\User\policies\UserPolicy;
@@ -58,7 +56,7 @@ class UserServiceProvider extends ServiceProvider
             );
             config()->set('sidebar.item.profile',
                 [
-                    'icon' => 'i-users__information',
+                    'icon' => ' i-slideshow',
                     'title' => 'اطلاعات کاربری',
                     'url' => route('dashboard.users.profile'),
                 ]

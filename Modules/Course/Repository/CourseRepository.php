@@ -53,9 +53,9 @@ class CourseRepository
             'confirmation_status' => courses::CONFIRMATION_STATUS_PENDING
         ]);
     }
-    public function UpdateConfirmStatus($id , string $status)
+    public function UpdateConfirmStatus($course , string $status)
     {
-        return courses::where('id' , $id)->update(['confirmation_status' => $status]);
+        return $course->update(['confirmation_status' => $status]);
     }
 
     public function UpdateStatus($id , string $status)
@@ -71,6 +71,14 @@ class CourseRepository
     {
         return courses::where('confirmation_status' , courses::CONFIRMATION_STATUS_ACCEPTED)
             ->latest()
+            ->take(4)
+            ->get();
+    }
+    public function MostViewCourses()
+    {
+        return courses::query()
+            ->where('confirmation_status' , courses::CONFIRMATION_STATUS_ACCEPTED)
+            ->orderByDesc('priority')
             ->take(8)
             ->get();
     }
@@ -95,4 +103,5 @@ class CourseRepository
     {
         return $course->student->contains($user);
     }
+
 }

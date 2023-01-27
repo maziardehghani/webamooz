@@ -2,11 +2,9 @@
 
 namespace Modules\RolePermissions\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\User\Models\User;
+use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class RolePermissionsDatabaseSeeder extends Seeder
 {

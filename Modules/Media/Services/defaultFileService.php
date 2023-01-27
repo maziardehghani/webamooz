@@ -3,7 +3,6 @@
 namespace Modules\Media\Services;
 
 use Illuminate\Support\Facades\Storage;
-use Modules\Media\Models\Media;
 
 abstract class defaultFileService
 {

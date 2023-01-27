@@ -2,8 +2,8 @@
 
 namespace Modules\Payment\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Modules\Payment\Events\paymentWasSuccessful;
 use Modules\Payment\GateWays\ZarinPal\GateWay;
 use Modules\Payment\Models\Payment;
@@ -85,7 +85,7 @@ class PaymentController extends Controller
 
     public function myShop()
     {
-        $purchases = auth()->user()->payments;
+        $purchases = $this->paymentRepository->myShops();
 
         return view('payment::myShop' , compact('purchases'));
     }

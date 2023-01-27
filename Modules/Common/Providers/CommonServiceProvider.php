@@ -2,8 +2,8 @@
 
 namespace Modules\Common\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
 
 class CommonServiceProvider extends ServiceProvider
 {
@@ -38,6 +38,12 @@ class CommonServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        view()->composer('dashboard::layouts.header' , function ($view)
+        {
+            $notifications = auth()->user()->unreadNotifications;
+            $view->with(compact('notifications'));
+        });
+
         $this->app->register(RouteServiceProvider::class);
     }
 

@@ -2,8 +2,8 @@
 
 namespace Modules\Front\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\ServiceProvider;
 use Modules\Category\Repository\CategoryRepository;
 use Modules\Course\Repository\CourseRepository;
 
@@ -43,10 +43,10 @@ class FrontServiceProvider extends ServiceProvider
             $categories = (new CategoryRepository())->tree();
             $view->with(compact('categories'));
         });
-        view()->composer('front::layouts.latest' , function ($view){
-            $latestCourses = (new CourseRepository())->latestCourses();
-            $view->with(compact('latestCourses'));
-        });
+//        view()->composer('front::layouts.latest' , function ($view){
+//            $latestCourses = (new CourseRepository())->latestCourses();
+//            $view->with(compact('latestCourses'));
+//        });
         $this->app->register(RouteServiceProvider::class);
     }
 

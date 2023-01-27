@@ -3,7 +3,6 @@
 namespace Modules\Course\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\Course\Models\courses;
 use Modules\RolePermissions\Models\Permission;
 
 class lessonPolicy

@@ -2,10 +2,9 @@
 
 namespace Modules\Media\Http\Controllers;
 
-use App\Models\Media;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Media;
+use Illuminate\Http\Request;
 use Modules\Media\Services\MediaFileService;
 
 class MediaController extends Controller

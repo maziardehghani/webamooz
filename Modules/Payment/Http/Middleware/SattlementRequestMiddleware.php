@@ -4,9 +4,6 @@ namespace Modules\Payment\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Modules\Payment\Http\Requests\sattlementRequest;
-use Modules\Payment\Repasitories\sattlementRepository;
-use Modules\Payment\Services\SattlementService;
 use Modules\RolePermissions\Models\Permission;
 
 class SattlementRequestMiddleware

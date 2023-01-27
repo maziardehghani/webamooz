@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <div class="col-12 bg-white">
-    <p class="box__title">ویرایش دسته بندی</p>
+    <p class="box__title">ویرایش پروفایل</p>
     <form action="{{route('dashboard.users.profile.update',auth()->user()->id)}}" method="post" class="padding-30" enctype="multipart/form-data">
         @csrf
         <input name="name" required type="text"  class="text" value="{{auth()->user()->name}}">
@@ -26,8 +26,14 @@
             <strong>{{ $message }}</strong>
         </div>
         @enderror
-        <input name="mobile"  type="text"  class="text" value="{{auth()->user()->mobile}}">
+        <input name="mobile"  type="text"  class="text" value="{{auth()->user()->mobile}}" placeholder="تلفن همراه">
         @error('mobile')
+        <div class=" text-danger colorRed">
+            <strong>{{ $message }}</strong>
+        </div>
+        @enderror
+        <input name="telegram"  type="text"  class="text" value="{{auth()->user()->telegram}}" placeholder="آیدی تلگرام جهت ارسال نوتیفیکیشن">
+        @error('telegram')
         <div class=" text-danger colorRed">
             <strong>{{ $message }}</strong>
         </div>

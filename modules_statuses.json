@@ -9,5 +9,7 @@
     "Common": true,
     "Front": true,
     "Payment": true,
-    "Discount": true
+    "Discount": true,
+    "Comment": true,
+    "Slider": true
 }

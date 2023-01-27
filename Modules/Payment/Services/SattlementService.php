@@ -3,7 +3,6 @@
 namespace Modules\Payment\Services;
 
 use Modules\Payment\Models\Payment;
-use Modules\Payment\Models\Sattlement;
 use Modules\Payment\Repasitories\sattlementRepository;
 
 class SattlementService

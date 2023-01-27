@@ -53,4 +53,36 @@ class DiscountRepository
     {
         return Discount::query()->findOrFail($discount_id);
     }
+
+    public function getDiscount($discountable_id)
+    {
+        return Discount::query()
+            ->where('discountable_id' , $discountable_id)
+            ->where('expire_at' , '>' , now());
+    }
+    public function discountUses($discountable_id)
+    {
+        $discount = $this->getDiscount($discountable_id)
+            ->orderByDesc('percent')
+            ->first();
+
+        return $discount->uses;
+    }
+    public function getGlobalDiscount($discountable_id)
+    {
+        return $this->getDiscount($discountable_id)
+            ->whereNull('code')
+            ->where('type', Discount::TYPE_ALL)
+            ->orderByDesc('percent')
+            ->first();
+    }
+    public function getSpecialDiscount($discountable_id , $code)
+    {
+        $discountUses =  $this->discountUses($discountable_id);
+        return $this->getDiscount($discountable_id)
+            ->where('code' , $code)
+            ->where('usage_limitation' , '>' ,$discountUses)
+            ->orderByDesc('percent')
+            ->first();
+    }
 }

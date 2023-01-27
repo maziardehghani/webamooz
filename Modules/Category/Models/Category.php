@@ -5,7 +5,6 @@ namespace Modules\Category\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Course\Models\courses;
-use Modules\Course\Policies\couresPolicy;
 
 class Category extends Model
 {

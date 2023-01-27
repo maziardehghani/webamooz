@@ -2,11 +2,10 @@
 
 namespace Modules\Discount\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\Course\Repository\CourseRepository;
 use Modules\Discount\Http\Requests\DiscountRequest;
-use App\Http\Controllers\Controller;
 use Modules\Discount\Model\Discount;
 use Modules\Discount\Repository\DiscountRepository;
 

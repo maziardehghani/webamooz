@@ -5,7 +5,6 @@ namespace Modules\Payment\GateWays\ZarinPal;
 use Illuminate\Http\Request;
 use Modules\Payment\Contracts\GateWayContract;
 use Modules\Payment\Models\Payment;
-use Modules\Payment\Repasitories\paymentRepository;
 
 class ZarinpalAdaptor implements GateWayContract
 {

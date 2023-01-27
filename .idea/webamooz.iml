@@ -122,6 +122,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/intervention/image" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hekmatinasser/verta" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hekmatinasser/notowo" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kavenegar/php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/kavenegar/laravel-notification" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-notification-channels/telegram" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

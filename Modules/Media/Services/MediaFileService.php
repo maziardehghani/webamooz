@@ -2,9 +2,9 @@
 
 namespace Modules\Media\Services;
 
+use Illuminate\Http\UploadedFile;
 use Modules\Media\contracts\fileServiceContracts;
 use Modules\Media\Models\Media;
-use Illuminate\Http\UploadedFile;
 
 
 class MediaFileService

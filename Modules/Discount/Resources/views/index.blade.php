@@ -14,7 +14,9 @@
                             <tr role="row" class="title-row">
                                 <th>دوره</th>
                                 <th>درصد</th>
+                                <th>کد تخفیف</th>
                                 <th>محدودیت زمانی</th>
+                                <th>محدودیت اتفاده</th>
                                 <th>توضیحات</th>
                                 <th>استفاده شده</th>
                                 <th>عملیات</th>
@@ -25,7 +27,9 @@
                             <tr role="row" class="">
                                 <td><a href="">{{$discount->discountable->title}}</a></td>
                                 <td><a href="">{{$discount->percent}}</a></td>
+                                <td><a href="">{{$discount->code}}</a></td>
                                 <td>{{verta($discount->expire_at)->formatDifference()}}</td>
+                                <td>{{$discount->usage_limitation}}</td>
                                 <td>{{$discount->description}}</td>
                                 <td>{{$discount->uses}} نفر</td>
                                 <td>

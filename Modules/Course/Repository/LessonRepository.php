@@ -4,11 +4,8 @@ namespace Modules\Course\Repository;
 
 
 
-use Modules\Course\Models\courses;
-use Modules\Course\Repository\CourseRepository;
 use Illuminate\Support\Str;
 use Modules\Course\Models\lesson;
-
 
 
 class LessonRepository

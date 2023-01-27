@@ -3,9 +3,7 @@
 namespace Modules\User\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\RolePermissions\Models\Role;
 use Modules\User\Models\User;
-use Spatie\Permission\Models\Permission;
 
 
 class UserTableSeeders extends Seeder

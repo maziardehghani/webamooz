@@ -1,7 +1,9 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
-use Modules\User\Http\Controllers\UserController;
 use Modules\User\Actions\verificationCode;
+use Modules\User\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

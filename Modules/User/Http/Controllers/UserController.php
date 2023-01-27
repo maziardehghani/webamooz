@@ -2,16 +2,12 @@
 
 namespace Modules\User\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Modules\Dashboard\Http\Requests\UpdateUserPhotoRequest;
 use Modules\Media\Services\MediaFileService;
-use Modules\RolePermissions\Http\Requests\RoleRequest;
 use Modules\RolePermissions\Models\Permission;
-use Modules\RolePermissions\Models\Role;
 use Modules\RolePermissions\Repository\PermissionRepository;
-use Modules\RolePermissions\Repository\RoleRepository;
 use Modules\User\Http\Requests\AddPermissionRequest;
 use Modules\User\Http\Requests\AddRoleRequest;
 use Modules\User\Http\Requests\editProfileRequest;

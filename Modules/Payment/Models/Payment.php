@@ -4,6 +4,7 @@ namespace Modules\Payment\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Discount\Model\Discount;
 use Modules\User\Models\User;
 
 class Payment extends Model
@@ -37,5 +38,9 @@ class Payment extends Model
     public function seller()
     {
         return $this->belongsTo(User::class , 'seller_id');
+    }
+    public function discounts()
+    {
+        return $this->belongsToMany(Discount::class , 'discount_payment')->withTimestamps();
     }
 }

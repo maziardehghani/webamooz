@@ -2,14 +2,12 @@
 
 namespace Modules\RolePermissions\Providers;
 
-use Database\Seeders\DatabaseSeeder;
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 use Modules\RolePermissions\Models\Permission;
 use Modules\RolePermissions\Models\Role;
 use Modules\RolePermissions\policies\RolePermissionPolicy;
-use Modules\User\Database\Seeders\RolePermissionSeeders;
 
 class RolePermissionsServiceProvider extends ServiceProvider
 {

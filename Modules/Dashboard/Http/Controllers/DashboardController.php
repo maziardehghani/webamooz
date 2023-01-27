@@ -3,7 +3,6 @@
 namespace Modules\Dashboard\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Modules\Payment\Repasitories\paymentRepository;
 
 class DashboardController extends Controller

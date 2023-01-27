@@ -4,6 +4,7 @@ namespace Modules\RolePermissions\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Traits\HasRoles;
+
 class Permission extends \Spatie\Permission\Models\Permission
 {
 

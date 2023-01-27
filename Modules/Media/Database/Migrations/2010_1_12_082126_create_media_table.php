@@ -19,7 +19,7 @@ class CreateMediaTable extends Migration
             $table->longText('files');
             $table->string('filename' , 255);
             $table->boolean('is_private');
-            $table->enum('type' , ['image' , 'video' , 'audio' , 'doc']);
+            $table->enum('type' , \Modules\Media\Models\Media::$types);
             $table->timestamps();
         });
     }

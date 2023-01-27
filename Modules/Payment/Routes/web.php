@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use Illuminate\Support\Facades\Route;
 use Modules\Payment\Http\Controllers\PaymentController;
 use Modules\Payment\Http\Controllers\SattlementController;

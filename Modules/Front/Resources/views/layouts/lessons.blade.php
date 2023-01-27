@@ -12,7 +12,6 @@
                     <div class="episodes-list-details">
                         <span class="detail-type">{{$lesson->is_free()?'رایگان':''}}</span>
                         <span class="detail-time">{{$lesson->time}} دقیقه</span>
-                        <a class="detail-download" @cannot('download' , $lesson)href="{{$lesson->downloadLink()}}" @endcannot>
                             <i class="icon-download"></i>
                         </a>
                     </div>

@@ -2,9 +2,9 @@
 
 namespace Modules\Discount\Providers;
 
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 use Modules\Discount\Model\Discount;
 use Modules\Discount\Policy\discountPolicy;
 use Modules\RolePermissions\Models\Permission;
@@ -60,6 +60,8 @@ class DiscountServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->register(EventServiceProvider::class);
+
     }
 
     /**

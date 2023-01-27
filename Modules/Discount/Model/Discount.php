@@ -4,6 +4,7 @@ namespace Modules\Discount\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Payment\Models\Payment;
 
 class Discount extends Model
 {
@@ -27,4 +28,9 @@ class Discount extends Model
     {
         return $this->morphTo();
     }
+    public function payments()
+    {
+        return $this->belongsToMany(Payment::class , 'discount_payment')->withTimestamps();
+    }
+
 }

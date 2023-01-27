@@ -2,11 +2,9 @@
 
 namespace Modules\Media\Services;
 
-use Illuminate\Http\File;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Modules\Media\contracts\fileServiceContracts;
-use Modules\Media\Models\Media;
 
 class videoFileServices extends defaultFileService implements fileServiceContracts
 {

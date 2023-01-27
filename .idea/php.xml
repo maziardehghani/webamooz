@@ -118,6 +118,9 @@
       <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
       <path value="$PROJECT_DIR$/vendor/hekmatinasser/verta" />
       <path value="$PROJECT_DIR$/vendor/hekmatinasser/notowo" />
+      <path value="$PROJECT_DIR$/vendor/kavenegar/php" />
+      <path value="$PROJECT_DIR$/vendor/kavenegar/laravel-notification" />
+      <path value="$PROJECT_DIR$/vendor/laravel-notification-channels/telegram" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

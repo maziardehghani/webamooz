@@ -7,7 +7,6 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use Modules\Payment\Models\Sattlement;
-use Modules\User\Models\User;
 
 class SattlementStatusChanged
 {

@@ -51,6 +51,8 @@ class UserRepository
     {
         $user = (new UserRepository())->findByID(auth()->id());
         $user->name = $request->name;
+        $user->telegram = $request->telegram;
+        $user->mobile = $request->mobile;
         if ($user->email != $request->email)
         {
             $user->email = $request->email;

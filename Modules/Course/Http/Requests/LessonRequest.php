@@ -2,12 +2,8 @@
 
 namespace Modules\Course\Http\Requests;
 
-use App\Rules\validmobile;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use Modules\Course\Models\courses;
 use Modules\Course\Rules\ValidSeason;
-use Modules\Course\Rules\ValidTeacher;
 use Modules\Media\Models\Media;
 
 class LessonRequest extends FormRequest

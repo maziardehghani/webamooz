@@ -2,9 +2,7 @@
 
 namespace Modules\User\Actions;
 
-use Illuminate\Http\Request;
 use Modules\User\Http\Requests\verifyCodeRequest;
-use Modules\User\Models\User;
 use Modules\User\Services\VerifyCodeService;
 
 class verificationCode
@@ -16,7 +14,7 @@ class verificationCode
             return back()->withErrors(['verification_code' , 'کد وارد شده معتبر نمیباشد']);
         }
         auth()->user()->markEmailAsVerified();
-        return redirect()->route('home');
+        return redirect()->to('/');
 
     }
 }

@@ -3,7 +3,7 @@
         <div class="course-status">
             @lang($coursesItem->status)
         </div>
-        @if($coursesItem->courseHasDiscountForEveryOne())
+        @if($coursesItem->global_discount())
         <div class="discountBadge">
             <p>{{$coursesItem->discountPercent()}}%</p>
             تخفیف
@@ -18,7 +18,7 @@
         <div class="card-details">
             <div class="time">{{$coursesItem->formattedTime()}}</div>
             <div class="price">
-                @if($coursesItem->courseHasDiscountForEveryOne())
+                @if($coursesItem->global_discount())
                 <div class="discountPrice">{{number_format($coursesItem->getPrice())}}</div>
                 @endif
                 <div class="endPrice">{{number_format($coursesItem->FinalPrice())}}</div>

@@ -40,7 +40,7 @@
                             @else
                                 <div class="sell_course">
                                     <strong>قیمت :</strong>
-                                    @if($course->courseHasDiscountForEveryOne())
+                                    @if($course->global_discount())
                                     <del class="discount-Price">{{number_format($course->getPrice())}}</del>
                                     @endif
                                     <p class="price">
@@ -49,12 +49,14 @@
                         </span>
                                     </p>
                                 </div>
-                                <button class="btn buy btn-buy">خرید دوره</button>
+                                <a href="{{route('discounterPage.show' , $course->id)}}" class="btn buy ">خرید دوره</a>
                             @endif
                         @else
                             <div class="sell_course">
                                 <strong>قیمت :</strong>
-                                <del class="discount-Price">{{number_format($course->getPrice())}}</del>
+                                @if($course->global_discount())
+                                    <del class="discount-Price">{{number_format($course->getPrice())}}</del>
+                                @endif
                                 <p class="price">
                         <span class="woocommerce-Price-amount amount">{{number_format($course->FinalPrice())}}
                             <span class="woocommerce-Price-currencySymbol">تومان</span>
@@ -179,203 +181,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="comments">
-                <div class="comment-main">
-                    <div class="ct-header">
-                        <h3>نظرات ( 180 )</h3>
-                        <p>نظر خود را در مورد این مقاله مطرح کنید</p>
-                    </div>
-                    <form action="" method="post">
-                        <div class="ct-row">
-                            <div class="ct-textarea">
-                                <textarea class="txt ct-textarea-field"></textarea>
-                            </div>
-                        </div>
-                        <div class="ct-row">
-                            <div class="send-comment">
-                                <button class="btn i-t">ثبت نظر</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="comments-list">
-                    <div id="Modal2" class="modal">
-                        <div class="modal-content" style="width: 1000px;">
-                            <div class="modal-header">
-                                <p>ارسال پاسخ</p>
-                                <div class="close">×</div>
-                            </div>
-                            <div class="modal-body">
-                                <form method="post" action="">
-                                    <textarea class="txt hi-220px" placeholder="متن دیدگاه"></textarea>
-                                    <button class="btn i-t">ثبت پاسخ</button>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                    <ul class="comment-list-ul">
-                        <div class="div-btn-answer">
-                            <button class="btn-answer">پاسخ به دیدگاه</button>
-                        </div>
-                        <li class="is-comment">
-                            <div class="comment-header">
-                                <div class="comment-header-avatar">
-                                    <img src="img/profile.jpg">
-                                </div>
-                                <div class="comment-header-detail">
-                                    <div class="comment-header-name">کاربر : گوگل گوگل گوگل گوگل</div>
-                                    <div class="comment-header-date">10 روز پیش</div>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
-                                    می باشد.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="is-answer">
-                            <div class="comment-header">
-                                <div class="comment-header-avatar">
-                                    <img src="img/laravel-pic.png">
-                                </div>
-                                <div class="comment-header-detail">
-                                    <div class="comment-header-name">مدیر سایت : محمد نیکو</div>
-                                    <div class="comment-header-date">10 روز پیش</div>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
-                                    می باشد.
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
-                                    می باشد.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="is-comment">
-                            <div class="comment-header">
-                                <div class="comment-header-avatar">
-                                    <img src="img/profile.jpg">
-                                </div>
-                                <div class="comment-header-detail">
-                                    <div class="comment-header-name">کاربر : گوگل</div>
-                                    <div class="comment-header-date">10 روز پیش</div>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
-                                    می باشد.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                    <ul class="comment-list-ul">
-                        <div class="div-btn-answer">
-                            <button class="btn-answer">پاسخ به دیدگاه</button>
-                        </div>
-                        <li class="is-comment">
-                            <div class="comment-header">
-                                <div class="comment-header-avatar">
-                                    <img src="img/profile.jpg">
-                                </div>
-                                <div class="comment-header-detail">
-                                    <div class="comment-header-name">کاربر : گوگل</div>
-                                    <div class="comment-header-date">10 روز پیش</div>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
-                                    می باشد.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="is-answer">
-                            <div class="comment-header">
-                                <div class="comment-header-avatar">
-                                    <img src="img/laravel-pic.png">
-                                </div>
-                                <div class="comment-header-detail">
-                                    <div class="comment-header-name">مدیر سایت : محمد نیکو</div>
-                                    <div class="comment-header-date">10 روز پیش</div>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
-                                    می باشد.
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و
-                                    برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی
-                                    می باشد.
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-
-
-                </div>
-            </div>
-        </div>
-        <div id="Modal-buy" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <p>کد تخفیف را وارد کنید</p>
-                    <div class="close">&times;</div>
-                </div>
-                <div class="modal-body">
-                    <form method="post" action="{{route('dashboard.courses.buy' , $course->id)}}">
-                        @csrf
-                        <table class="table text-center table-bordered table-striped">
-                            <tbody>
-                            <tr>
-                                <th>قیمت کل دوره</th>
-                                <td> {{number_format($course->getPrice())}}تومان</td>
-                            </tr>
-                            <tr>
-                                <th>درصد تخفیف</th>
-                                <td><span id="discountPercent" data-value="{{$course->discountPercent()}}">{{$course->discountPercent()}}</span>%</td>
-                            </tr>
-                            <tr>
-                                <th> مبلغ تخفیف</th>
-                                <td class="text-red"><span
-                                        id="discountAmount" data-value="{{$course->discountAmount()}}">{{$course->discountAmount()}}</span> تومان
-                                </td>
-                            </tr>
-                            <tr>
-                                <th> قابل پرداخت</th>
-                                <td class="text-blue"><span
-                                        id="payableAmount" data-value="{{$course->FinalPrice()}}">{{$course->FinalPrice()}}</span> تومان
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <button type="submit" class="btn btn i-t ">پرداخت آنلاین</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
+        @include('front::comments.index' , ['commentable' => $course])
     </div>
 @endsection
 

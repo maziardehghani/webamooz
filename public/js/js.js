@@ -217,6 +217,7 @@ $('.study-mode').click(function () {
     $('.content-left').toggleClass('on');
 })
 
-function setCommentId(commentableId) {
-    $("#comment_id").val(commentableId)
+function setCommentsId(CommentableId)
+{
+    $("#ThisComment_id").val(CommentableId)
 }

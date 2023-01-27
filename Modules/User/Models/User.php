@@ -2,18 +2,18 @@
 
 namespace Modules\User\Models;
 
-use Illuminate\Support\Facades\DB;
-use Modules\Course\Models\courses;
-use Modules\Course\Models\lesson;
-use Modules\Course\Models\Season;
-use Modules\Media\Models\Media;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Modules\Comment\Models\Comment;
+use Modules\Course\Models\courses;
+use Modules\Course\Models\lesson;
+use Modules\Course\Models\Season;
+use Modules\Media\Models\Media;
 use Modules\Payment\Models\Payment;
 use Modules\RolePermissions\Models\Permission;
-use Modules\RolePermissions\Models\Role;
 use Modules\User\Notifications\VerifyMailNotification;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
@@ -125,6 +125,14 @@ class User extends Authenticatable implements MustVerifyEmail
     public function payments()
     {
         return $this->hasMany(Payment::class , 'buyer_id');
+    }
+    public function comments()
+    {
+       return $this->hasMany(Comment::class , 'user_id');
+    }
+    public function routeNotificationForSms()
+    {
+        return $this->mobile; // where `phone` is a field in your users table;
     }
 
 }

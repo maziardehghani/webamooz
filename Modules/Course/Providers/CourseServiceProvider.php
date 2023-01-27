@@ -2,7 +2,6 @@
 
 namespace Modules\Course\Providers;
 
-use Database\Seeders\DatabaseSeeder;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -13,7 +12,6 @@ use Modules\Course\Policies\couresPolicy;
 use Modules\Course\Policies\lessonPolicy;
 use Modules\Course\Policies\seasonPolicy;
 use Modules\RolePermissions\Models\Permission;
-use Modules\User\Database\Seeders\RolePermissionSeeders;
 
 class CourseServiceProvider extends ServiceProvider
 {

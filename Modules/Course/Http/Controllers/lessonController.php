@@ -3,13 +3,10 @@
 namespace Modules\Course\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 use Modules\Course\Http\Requests\LessonRequest;
 use Modules\Course\Repository\CourseRepository;
 use Modules\Course\Repository\LessonRepository;
 use Modules\Course\Repository\SeasonRepository;
-use Modules\Media\Models\Media;
 use Modules\Media\Services\MediaFileService;
 
 class lessonController extends Controller

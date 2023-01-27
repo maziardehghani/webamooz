@@ -5,7 +5,6 @@ namespace Modules\User\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Modules\User\Models\User;
 
 class verifyCodeMail extends Mailable
 {
