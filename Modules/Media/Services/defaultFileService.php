@@ -4,10 +4,9 @@ namespace Modules\Media\Services;
 
 use Illuminate\Support\Facades\Storage;
 
-abstract class defaultFileService
+class defaultFileService
 {
     public static $media;
-    abstract public static function getFilename();
 
     public static function delete($media)
     {
@@ -23,10 +22,6 @@ abstract class defaultFileService
         }
     }
 
-    public static function jsonDecoder($array)
-    {
-        return json_decode($array);
-    }
     public static function stream($media)
     {
         self::$media = $media;
@@ -44,4 +39,11 @@ abstract class defaultFileService
                 ]
         );
     }
+    public static function getFilename()
+    {
+        $files = json_decode(self::$media->files);
+      return self::$media->is_private ? 'private/' : 'public/ '.$files->original;
+    }
+
+
 }

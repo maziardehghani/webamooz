@@ -5,6 +5,7 @@ namespace Modules\Course\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Modules\Category\Repository\CategoryRepository;
 use Modules\Course\Events\CourseStatusChangedEvent;
+use Modules\Course\Events\newCourseCreated;
 use Modules\Course\Http\Requests\CourseRequest;
 use Modules\Course\Models\courses;
 use Modules\Course\Repository\CourseRepository;
@@ -69,7 +70,8 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $request->request->add(['banner_id' => MediaFileService::uploadPublic($request->file('image'))->id]);
-        $this->courseRepository->store($request);
+        $course = $this->courseRepository->store($request);
+        event(new newCourseCreated($course));
         return redirect(route('dashboard.courses'));
     }
 

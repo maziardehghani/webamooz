@@ -31,14 +31,7 @@ class UserRepository
             'email' => $value->email,
             'username' => $value->username,
             'mobile' => $value->mobile,
-            'headline' => $value->headline,
-            'bio' => $value->bio,
             'status' => $value->status,
-            'telegram' => $value->telegram,
-            'whatsapp' => $value->whatsapp,
-            'linkedin' => $value->linkedin,
-            'facebook' => $value->facebook,
-            'image_id' => $value->image_id,
         ];
         if (! isNull($value->password))
         {

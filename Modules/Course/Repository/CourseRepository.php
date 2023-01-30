@@ -71,7 +71,7 @@ class CourseRepository
     {
         return courses::where('confirmation_status' , courses::CONFIRMATION_STATUS_ACCEPTED)
             ->latest()
-            ->take(4)
+            ->take(12)
             ->get();
     }
     public function MostViewCourses()
@@ -102,6 +102,28 @@ class CourseRepository
     public function hasStudent(courses $course , $user)
     {
         return $course->student->contains($user);
+    }
+    public function all_courses()
+    {
+        return courses::query()
+            ->where('confirmation_status' , courses::CONFIRMATION_STATUS_ACCEPTED)
+            ->paginate();
+    }
+
+    public function searchCourses($searchBox)
+    {
+        return courses::query()
+            ->where('title' , 'like' , '%'.$searchBox.'%')
+            ->where('confirmation_status' , courses::CONFIRMATION_STATUS_ACCEPTED)
+            ->get();
+    }
+
+    public function categoryCourses($category_id)
+    {
+        return courses::query()
+            ->where('category_id', $category_id)
+            ->where('confirmation_status' , courses::CONFIRMATION_STATUS_ACCEPTED)
+            ->get();
     }
 
 }

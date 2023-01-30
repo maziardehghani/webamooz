@@ -4,7 +4,9 @@ namespace Modules\Payment\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Modules\Payment\Events\SattlementStatusChanged;
+use Modules\Payment\Events\settledEvent;
 use Modules\Payment\Events\settledUserRequest;
+use Modules\Payment\Events\TeacherSentSattlement;
 use Modules\Payment\Http\Requests\sattlementRequest;
 use Modules\Payment\Models\Sattlement;
 use Modules\Payment\Repasitories\sattlementRepository;
@@ -41,6 +43,7 @@ class SattlementController extends Controller
 
         $sattlement = $this->sattlementRepository->store($request , $user_id);
         event(new SattlementStatusChanged($this->sattlementRepository->find($sattlement->id)));
+        event(new TeacherSentSattlement($this->sattlementRepository->find($sattlement->id)));
         return redirect()->to(route('dashboard.sattlement.index'));
     }
 
@@ -62,7 +65,9 @@ class SattlementController extends Controller
     public function settled($sattlement_id)
     {
         $this->authorize('rejectAndAccept' , Sattlement::class);
-        $this->sattlementRepository->settled($sattlement_id);
+        $sattlement = $this->sattlementRepository->find($sattlement_id);
+        $this->sattlementRepository->settled($sattlement);
+        event(new settledEvent($sattlement));
         return redirect()->to(route('dashboard.sattlement.index'));
     }
     public function rejected($sattlement_id)

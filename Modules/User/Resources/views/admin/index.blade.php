@@ -15,7 +15,6 @@
                     <table class="table">
                         <thead role="rowgroup">
                         <tr role="row" class="title-row">
-                            <th>ردیف</th>
                             <th>ID</th>
                             <th>نام</th>
                             <th>ایمیل</th>
@@ -32,7 +31,6 @@
                         @foreach($users as $user)
 
                             <tr role="row" class="">
-                                <td>{{$loop->iteration}}</td>
                                 <td><a href="">{{$user->id}}</a></td>
                                 <td><a href="">{{$user->name}}</a></td>
                                 <td><a href="">{{$user->email}}</a></td>

@@ -10,107 +10,32 @@
             <div class="t-header-right">
                 <div class="t-header-logo"><a href="/"></a></div>
                 <div class="t-header-search">
-                    <div class="t-header-searchbox">
-                        <input type="text" placeholder="جستجو دوره / مقاله / مدرس">
-                        <div class="t-header-search-content">
-                            <div class="t-header-search-result-filters">
-                                <div class="t-header-search-filter-item f-all active"><span>همه (20)</span></div>
-                                <div class="t-header-search-filter-item f-courses "><span>دوره ها (13)</span></div>
-                                <div class="t-header-search-filter-item f-article "><span>مقاله ها (5)</span></div>
-                                <div class="t-header-search-filter-item f-teacher "><span>مدرسین (2)</span></div>
-                            </div>
-                            <div class="t-header-search-result">
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>دوره ساخت فریم ورک مشابه لاراول</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>laravel course</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>دوره ساخت فریم ورک مشابه لاراول</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>دوره ساخت فریم ورک مشابه لاراول</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>دوره ساخت فریم ورک مشابه لاراول</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>دوره ساخت فریم ورک مشابه لاراول</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>دوره ساخت فریم ورک مشابه لاراول</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="t-header-search-result-right">
-                                        <p>دوره ساخت فریم ورک مشابه لاراول</p>
-                                        <p class="t-header-search-result-right-info">
-                                            مدرس دوره : محمد نیکو
-                                        </p>
-                                    </div>
-                                    <div class="t-header-search-result-left">
-                                        <img src="img/banner/laravel-payment-processing.jpg" alt="">
-                                    </div>
-                                </a>
+                    <form action="{{route('Front.index')}}" method="post">
+                        @csrf
+                        <div class="t-header-searchbox">
+                            <input name="searchBox" type="text" placeholder="جستجو دوره ها">
+                            <div class="t-header-search-content">
+                                <div class="t-header-search-result">
+                                    @if(isset($searchBox))
+                                        @foreach($searchBox as $course)
+                                    <a href="{{$course->path()}}">
+                                        <div class="t-header-search-result-right">
+                                            <p>{{$course->title}}</p>
+                                            <p class="t-header-search-result-right-info">
+                                                مدرس دوره : {{$course->teacher->name}}
+                                            </p>
+                                        </div>
+                                        <div class="t-header-search-result-left">
+                                            <img src="{{$course->banner->thumb}}" alt="">
+                                        </div>
+                                    </a>
+                                        @endforeach
+                                    @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
             <div class="t-header-left">

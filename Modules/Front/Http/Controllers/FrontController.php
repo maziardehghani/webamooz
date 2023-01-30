@@ -3,6 +3,7 @@
 namespace Modules\Front\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Modules\Course\Models\courses;
 use Modules\Course\Repository\CourseRepository;
@@ -13,13 +14,30 @@ use Modules\User\Models\User;
 
 class FrontController extends Controller
 {
-    public function index()
+    private $courseRepository;
+    private $sliderRepository;
+    public function __construct(CourseRepository $courseRepository , SliderRepository $sliderRepository)
     {
-        $sliders = (new SliderRepository())->Banners();
-        $adds = (new SliderRepository())->Adds();
-        $latestCourses = (new CourseRepository())->latestCourses();
-        $mostViewCourses = (new CourseRepository())->MostViewCourses();
-        return view('front::index' , compact('sliders' , 'latestCourses' , 'adds' , 'mostViewCourses'));
+        $this->courseRepository = $courseRepository;
+        $this->sliderRepository = $sliderRepository;
+    }
+    public function index(Request $request)
+    {
+        $sliders = $this->sliderRepository->Banners();
+        $adds = $this->sliderRepository->Adds();
+        $latestCourses = $this->courseRepository->latestCourses();
+        if ($request->searchBox){
+            view()->composer('front::layouts.header' , function ($view){
+                $searchBox = $this->courseRepository->searchCourses(request()->searchBox);
+                $view->with(compact('searchBox'));
+            });
+        }
+        return view('front::index' , compact(['sliders', 'adds' , 'latestCourses']));
+    }
+    public function categories($category_id)
+    {
+        $courses = $this->courseRepository->categoryCourses($category_id);
+        return view('front::all_courses', compact('courses'));
     }
     public function CourseShow($slug , CourseRepository $courseRepository , LessonRepository $lessonRepository)
     {
@@ -48,7 +66,7 @@ class FrontController extends Controller
     }
     public function discount( $course_id)
     {
-        $course = (new CourseRepository())->findById($course_id);
+        $course = $this->courseRepository->findById($course_id);
         if ($course->checkCode(request()->get('code')))
         {
             $finalPriceAfterDiscount = $course->FinalPrice();
@@ -70,7 +88,7 @@ class FrontController extends Controller
 
     public function all_courses()
     {
-        $courses = (new CourseRepository())->paginate();
+        $courses = $this->courseRepository->all_courses();
         return view('front::all_courses' , compact('courses'));
     }
 

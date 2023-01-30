@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\userStatus;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Modules\Payment\Http\Middleware\SattlementRequestMiddleware;
 use Nwidart\Modules\Module;
@@ -39,6 +40,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            userStatus::class
         ],
 
         'api' => [

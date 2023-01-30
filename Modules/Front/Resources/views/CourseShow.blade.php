@@ -3,7 +3,7 @@
     <div class="content">
         <div class="container">
             <article class="article">
-             @include('front::layouts.adds')
+{{--             @include('front::layouts.adds')--}}
                 <div class="h-t">
                     <h1 class="title">{{$course->title}}</h1>
                     <div class="breadcrumb">
@@ -63,36 +63,37 @@
                         </span>
                                 </p>
                             </div>
-                            <p class="wrongAccessToCourse">شما هنوز به حساب کاربری خود وارد نشده اید</p>
-
+                            <div class="join-teachers">
+                                <a >شما هنوز به حساب کاربری خود وارد نشده اید</a>
+                            </div>
                             <a href="{{route('login')}}" class="btn buy">ورود به حساب </a>
                         @endauth
-                        <div class="average-rating-sidebar">
-                            <div class="rating-stars">
-                                <div class="slider-rating">
-                                    <span class="slider-rating-span slider-rating-span-100" data-value="100%"
-                                          data-title="خیلی خوب"></span>
-                                    <span class="slider-rating-span slider-rating-span-80" data-value="80%"
-                                          data-title="خوب"></span>
-                                    <span class="slider-rating-span slider-rating-span-60" data-value="60%"
-                                          data-title="معمولی"></span>
-                                    <span class="slider-rating-span slider-rating-span-40" data-value="40%"
-                                          data-title="بد"></span>
-                                    <span class="slider-rating-span slider-rating-span-20" data-value="20%"
-                                          data-title="خیلی بد"></span>
-                                    <div class="star-fill"></div>
-                                </div>
-                            </div>
-                            <div class="average-rating-number">
-                                <span class="title-rate title-rate1">امتیاز</span>
-                                <div class="schema-stars">
-                                    <span class="value-rate text-message"> 4 </span>
-                                    <span class="title-rate">از</span>
-                                    <span class="value-rate"> 555 </span>
-                                    <span class="title-rate">رأی</span>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="average-rating-sidebar">--}}
+{{--                            <div class="rating-stars">--}}
+{{--                                <div class="slider-rating">--}}
+{{--                                    <span class="slider-rating-span slider-rating-span-100" data-value="100%"--}}
+{{--                                          data-title="خیلی خوب"></span>--}}
+{{--                                    <span class="slider-rating-span slider-rating-span-80" data-value="80%"--}}
+{{--                                          data-title="خوب"></span>--}}
+{{--                                    <span class="slider-rating-span slider-rating-span-60" data-value="60%"--}}
+{{--                                          data-title="معمولی"></span>--}}
+{{--                                    <span class="slider-rating-span slider-rating-span-40" data-value="40%"--}}
+{{--                                          data-title="بد"></span>--}}
+{{--                                    <span class="slider-rating-span slider-rating-span-20" data-value="20%"--}}
+{{--                                          data-title="خیلی بد"></span>--}}
+{{--                                    <div class="star-fill"></div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="average-rating-number">--}}
+{{--                                <span class="title-rate title-rate1">امتیاز</span>--}}
+{{--                                <div class="schema-stars">--}}
+{{--                                    <span class="value-rate text-message"> 4 </span>--}}
+{{--                                    <span class="title-rate">از</span>--}}
+{{--                                    <span class="value-rate"> 555 </span>--}}
+{{--                                    <span class="title-rate">رأی</span>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="product-info-box">
                         <div class="product-meta-info-list">
@@ -165,15 +166,15 @@
                     <div>
                         {!! $course->description !!}
                     </div>
-                    <div class="tags">
-                        <ul>
-                            <li><a href="">ری اکت</a></li>
-                            <li><a href="">reactjs</a></li>
-                            <li><a href="">جاوااسکریپت</a></li>
-                            <li><a href="">javascript</a></li>
-                            <li><a href="">reactjs چیست</a></li>
-                        </ul>
-                    </div>
+{{--                    <div class="tags">--}}
+{{--                        <ul>--}}
+{{--                            <li><a href="">ری اکت</a></li>--}}
+{{--                            <li><a href="">reactjs</a></li>--}}
+{{--                            <li><a href="">جاوااسکریپت</a></li>--}}
+{{--                            <li><a href="">javascript</a></li>--}}
+{{--                            <li><a href="">reactjs چیست</a></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="episodes-list">
                     <div class="episodes-list--title">فهرست جلسات</div>

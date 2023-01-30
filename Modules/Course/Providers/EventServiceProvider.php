@@ -4,7 +4,9 @@ namespace Modules\Course\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Modules\Course\Events\CourseStatusChangedEvent;
+use Modules\Course\Events\newCourseCreated;
 use Modules\Course\Listeners\registerUserInTheCourse;
+use Modules\Course\Listeners\sendCourseCreatedNotificationListener;
 use Modules\Course\Listeners\sendTeacherCourseChangeStatusNotificationListener;
 use Modules\Payment\Events\paymentWasSuccessful;
 use Modules\Payment\Listeners\SendPaymentSuccessFulNotificationsListener;
@@ -23,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         CourseStatusChangedEvent::class => [
             sendTeacherCourseChangeStatusNotificationListener::class
+        ],
+        newCourseCreated::class =>[
+            sendCourseCreatedNotificationListener::class
         ]
     ];
 

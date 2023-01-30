@@ -58,15 +58,6 @@ class UserController extends Controller
     {
         $this->authorize('edit' , User::class);
         $user = $this->userRepository->findByID($id);
-        if ($request->hasFile('image'))
-        {
-            $request->request->add(['image_id' => MediaFileService::uploadPublic($request->file('image'))->id]);
-            if ($user->image)
-                $user->image->delete();
-        }else
-        {
-            $request->request->add(['image_id' => $user->image_id]);
-        }
 
         $this->userRepository->update($id , $request);
         // newFeedback('پیام موفقیت آمیز' , 'نقش مورد نظر به این کاربر داده شد' , 'success' );

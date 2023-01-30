@@ -28,10 +28,9 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required|min:3,max:190',
             'email'=> 'required|min:3|max:190|unique:users,email,' . request()->route('user'),
-            'username' => 'nullable|email|min:3|max:190|unique:users,username,' . request()->route('user'),
+            'username' => 'nullable|min:3|max:190|unique:users,username,' . request()->route('user'),
             'mobile'=>'nullable|unique:users,mobile,' . request()->route('user'),
             'status' => ['required' ,Rule::in(User::$statuses)],
-            'image' => 'nullable'
         ];
     }
 }

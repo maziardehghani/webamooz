@@ -9,6 +9,7 @@ use Modules\Media\contracts\fileServiceContracts;
 class imageFileServices extends defaultFileService implements fileServiceContracts
 {
     protected static $sizes = ['300' , '600' , '700'];
+
     public static function upload($file , $filename , $extension , $dir) : array
     {
 
@@ -16,6 +17,7 @@ class imageFileServices extends defaultFileService implements fileServiceContrac
         $path = $dir . $filename . '.' . $extension;
         return self::resize(Storage::path($path) , $dir , $filename , $extension);
     }
+
 
     private static function resize($img , $dir , $filename , $extension)
     {
@@ -25,18 +27,13 @@ class imageFileServices extends defaultFileService implements fileServiceContrac
         foreach (self::$sizes as $size)
         {
             $imgs[$size] = $filename . '_' . $size . '.' .$extension;
-                $image->resize($size , null , function ($aspect)
+            $image->resize($size , null , function ($aspect)
             {
                 $aspect->aspectRatio();
             })->save(Storage::path($dir).$filename.'_'.$size. '.' . $extension);
         }
         return $imgs;
 
-    }
-    public static function getFilename()
-    {
-        $files = self::jsonDecoder(self::$media->files);
-        return (self::$media->is_private ? 'private/' : 'public/ ').$files->original;
     }
 
 

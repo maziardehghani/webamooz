@@ -1,15 +1,15 @@
 <footer>
     <a class="scrollToTop"></a>
-    <div class="container">
-        <div class="f-links">
-            <div class="col--2"><a href="">خدمات هاستینگ بستلا</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-        </div>
-    </div>
+{{--    <div class="container">--}}
+{{--        <div class="f-links">--}}
+{{--            <div class="col--2"><a href="">خدمات هاستینگ بستلا</a></div>--}}
+{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
+{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
+{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
+{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
+{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="line"></div>
     <div class="container">
         <div class="f-about">
@@ -26,8 +26,6 @@
         </div>
     </div>
     <div class="webamooz">
-        طراحی و توسعه با لاراول توسط تیم
-        <a href="https://webamooz.net">وب آموز</a>
-        © 1399
+       <a href="{{route('Front.index')}}">وب آموز</a>
     </div>
 </footer>

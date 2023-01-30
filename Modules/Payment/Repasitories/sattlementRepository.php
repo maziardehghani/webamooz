@@ -41,7 +41,7 @@ class sattlementRepository
 
     public function settled($sattlement)
     {
-        return Sattlement::query()->where('id' , $sattlement)->update(
+        return $sattlement->update(
             [
                 'status' => Sattlement::STATUS_SETTLED
             ]

@@ -5,6 +5,7 @@ namespace Modules\User\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use mysql_xdevapi\Exception;
 
 class verifyCodeMail extends Mailable
 {
@@ -30,7 +31,8 @@ class verifyCodeMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('user::mail.veryfy-mail')
-            ->subject('وب آموز|کد فعال سازی');
+            return $this->markdown('user::mail.veryfy-mail')
+                ->subject('وب آموز|کد فعال سازی');
+
     }
 }
