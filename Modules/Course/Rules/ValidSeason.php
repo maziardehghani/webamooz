@@ -26,7 +26,7 @@ class ValidSeason implements Rule
      */
     public function passes($attribute, $value)
     {
-        if ((new SeasonRepository())->findByIdAndCourseId($value , request()->route('course')))
+        if ((new SeasonRepository())->findByIdAndCourseId($value , request()->route('courses')))
             return true;
         return false;
 

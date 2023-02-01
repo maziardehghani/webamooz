@@ -3,6 +3,7 @@
 namespace Modules\Front\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Modules\Course\Models\courses;
@@ -23,15 +24,11 @@ class FrontController extends Controller
     }
     public function index(Request $request)
     {
+
         $sliders = $this->sliderRepository->Banners();
         $adds = $this->sliderRepository->Adds();
         $latestCourses = $this->courseRepository->latestCourses();
-        if ($request->searchBox){
-            view()->composer('front::layouts.header' , function ($view){
-                $searchBox = $this->courseRepository->searchCourses(request()->searchBox);
-                $view->with(compact('searchBox'));
-            });
-        }
+
         return view('front::index' , compact(['sliders', 'adds' , 'latestCourses']));
     }
     public function categories($category_id)

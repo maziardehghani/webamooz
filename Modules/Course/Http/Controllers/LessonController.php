@@ -25,7 +25,7 @@ class lessonController extends Controller
         $course = $this->courseRepository->findById($course);
         $this->authorize('createLesson' , $course);
         $seasons = $this->seasonRepository->getCourseSeason($course->id);
-        return view('course::lessons.create' , compact('seasons' , 'course'));
+        return view('courses::lessons.create' , compact('seasons' , 'course'));
     }
     public function store(LessonRequest $request , $course_id)
     {
@@ -41,7 +41,7 @@ class lessonController extends Controller
         $this->authorize('editLesson' , $lesson);
         $seasons = $this->seasonRepository->getCourseSeason($course);
         $course = $this->courseRepository->findById($course);
-        return view('course::lessons.edit' , compact('lesson','seasons' , 'course'));
+        return view('courses::lessons.edit' , compact('lesson','seasons' , 'course'));
 
     }
     public function update(LessonRequest $request,$lesson_id,$course_id)

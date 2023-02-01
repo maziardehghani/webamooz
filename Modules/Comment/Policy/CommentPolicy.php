@@ -20,21 +20,18 @@ class CommentPolicy
     {
         //
     }
+    public function index($user)
+    {
+        return $user->hasPermissionTo(Permission::PERMISSION_TEACHER)? true : null;
+    }
     public function manage($user)
     {
-        if ($user->hasPermissionTo(Permission::PERMISSION_TEACHER))
-        {
-            return true;
-        }
-        return null;
+        return $user->hasPermissionTo(Permission::PERMISSION_MANAGEMENT)? true : null;
     }
-    public function show($user , $comment)
+    public function answer($user , $comment)
     {
-        if ($user->hasPermissionTo(Permission::PERMISSION_TEACHER) &&
-            $user->id == $comment->commentable->teacher_id)
-        {
-            return true;
-        }
-        return null;
+        return
+            $user->hasPermissionTo(Permission::PERMISSION_TEACHER)
+            && $user->id == $comment->commentable->teacher_id ? true : null;
     }
 }

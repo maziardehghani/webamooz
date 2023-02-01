@@ -53,9 +53,9 @@ class CourseRepository
             'confirmation_status' => courses::CONFIRMATION_STATUS_PENDING
         ]);
     }
-    public function UpdateConfirmStatus($course , string $status)
+    public function UpdateConfirmStatus($courses , string $status)
     {
-        return $course->update(['confirmation_status' => $status]);
+        return $courses->update(['confirmation_status' => $status]);
     }
 
     public function UpdateStatus($id , string $status)
@@ -87,21 +87,21 @@ class CourseRepository
         return lesson::where(['course_id' => $course_id , 'confirmation_status' => courses::CONFIRMATION_STATUS_ACCEPTED])->sum('time');
     }
 
-    public function addStudentToCourse(courses $course, $student_id)
+    public function addStudentToCourse(courses $courses, $student_id)
     {
-        if (! $this->getStudentInCourseById($course , $student_id))
+        if (! $this->getStudentInCourseById($courses , $student_id))
         {
-            $course->student()->attach($student_id);
+            $courses->student()->attach($student_id);
         }
     }
-    public function getStudentInCourseById(courses $course, $student_id)
+    public function getStudentInCourseById(courses $courses, $student_id)
     {
-        return $course->student()->where(['user_id' => $student_id , 'course_id' => $course->id])->first();
+        return $courses->student()->where(['user_id' => $student_id , 'course_id' => $courses->id])->first();
     }
 
-    public function hasStudent(courses $course , $user)
+    public function hasStudent(courses $courses , $user)
     {
-        return $course->student->contains($user);
+        return $courses->student->contains($user);
     }
     public function all_courses()
     {

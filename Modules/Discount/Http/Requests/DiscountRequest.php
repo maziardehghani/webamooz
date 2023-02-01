@@ -30,7 +30,7 @@ class DiscountRequest extends FormRequest
             'percent' => 'required|numeric|min:1|max:100|',
             'usage_limitation' => 'nullable|numeric|min:1|max:100000',
             'expire_at' => 'required|numeric|min:1|',
-            'course' => 'nullable|numeric',
+            'courses' => 'nullable|numeric',
             'type' => ['required' , Rule::in(Discount::$types)]
 
         ];

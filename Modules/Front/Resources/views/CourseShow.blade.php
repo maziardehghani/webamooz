@@ -152,9 +152,9 @@
             <div class="content-left">
                 @if($lessonVideo)
                     @if($lessonVideo->media->type == 'video')
-                    <div class="preview">
-                        <video width="100%" controls="">
-                            <source  src="@can('download' , $lessonVideo){{ $lessonVideo ->downloadLink()}}@endcan" type="video/mp4">
+                        <div class="preview">
+                        <video width="100%" controls="" poster="{{$course->thumb}}">
+                            <source  src="@can('download' , $lessonVideo){{ $lessonVideo->downloadLink()}}@endcan" type="video/mp4">
                         </video>
                     </div>
                     @endif

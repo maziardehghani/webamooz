@@ -10,7 +10,7 @@ use Modules\Category\Repository\CategoryRepository;
 class CategoriesController extends Controller
 {
 
-    public $categoryRepository;
+    private $categoryRepository;
     public function __construct(CategoryRepository $Repository)
     {
         $this->categoryRepository = $Repository;
@@ -26,7 +26,7 @@ class CategoriesController extends Controller
     {
         $this->authorize('manage' , Category::class);
         $this->categoryRepository->store($request);
-        return back();
+        return redirect()->back();
     }
     public function edit(Category $category)
     {
@@ -40,12 +40,14 @@ class CategoriesController extends Controller
         $this->authorize('manage' , Category::class);
         $this->categoryRepository->update($categoryID , $request);
 
-        return back();
+        return redirect()->back();
+
     }
     public function destroy($categoryID)
     {
         $this->authorize('manage' , Category::class);
         $this->categoryRepository->delete($categoryID);
-        return back();
+        return redirect()->back();
+
     }
 }

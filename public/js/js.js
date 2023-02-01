@@ -66,7 +66,7 @@ $(window).scroll(function () {
 
     $(".like").on("click", function () {
         $(this).toggleClass("is-active");
-    }), $(".course-description-title").on("click", function () {
+    }), $(".courses-description-title").on("click", function () {
     $(this).parent().toggleClass("is-active");
 }), $(".cancel").on("click", function () {
     $(".answer-form").removeClass("is-active");

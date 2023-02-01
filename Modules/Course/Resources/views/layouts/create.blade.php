@@ -7,7 +7,7 @@
     <div class="col-4 bg-white">
         <p class="box__title">ایجاد دوره</p>
     </div>
-    <form action="{{route('dashboard.courses.store')}}" class="padding-30" method="post"  enctype="multipart/form-data">
+    <form action="{{route('dashboard.courses.store')}}" class="padding-30" method="post" enctype="multipart/form-data">
         @csrf
         <input name="title" type="text" class="text" placeholder="عنوان دوره" required value="{{old('title')}}">
         @error('title')
@@ -16,7 +16,8 @@
         </div>
         @enderror
 
-        <input name="slug" type="text" class="text text-left " required value="{{old('slug')}}" placeholder="نام انگلیسی دوره">
+        <input name="slug" type="text" class="text text-left " required value="{{old('slug')}}"
+               placeholder="نام انگلیسی دوره">
         @error('slug')
         <div class=" text-danger colorRed">
             <strong>{{ $message }}</strong>
@@ -24,23 +25,25 @@
         @enderror
 
 
-
         <div class="d-flex multi-text">
-            <input name="priority" type="text" class="text text-left mlg-15" value="{{old('priority')}}" placeholder="ردیف دوره">
+            <input name="priority" type="text" class="text text-left mlg-15" value="{{old('priority')}}"
+                   placeholder="ردیف دوره">
             @error('priority')
             <div class=" text-danger colorRed">
                 <strong>{{ $message }}</strong>
             </div>
             @enderror
 
-            <input name="price" type="text" placeholder="مبلغ دوره" required value="{{old('price')}}" class="text-left text mlg-15">
+            <input name="price" type="text" placeholder="مبلغ دوره" required value="{{old('price')}}"
+                   class="text-left text mlg-15">
             @error('price')
             <div class=" text-danger colorRed">
                 <strong>{{ $message }}</strong>
             </div>
             @enderror
 
-            <input name="percent" type="text" placeholder="درصد مدرس" required value="{{old('percent')}}" class="text-left text">
+            <input name="percent" type="text" placeholder="درصد مدرس" required value="{{old('percent')}}"
+                   class="text-left text">
             @error('percent')
             <div class=" text-danger colorRed">
                 <strong>{{ $message }}</strong>
@@ -97,7 +100,7 @@
         @enderror
 
 
-        <select name="category_id"  required>
+        <select name="category_id" required>
             <option value="">دسته بندی</option>
             @foreach($categories as $category)
                 <option value="{{$category->id}}">{{$category->title}}</option>
@@ -125,7 +128,7 @@
         @enderror
 
 
-        <textarea name="description"  placeholder="توضیحات دوره" class="text h">{{old('description')}}</textarea>
+        <textarea name="description" placeholder="توضیحات دوره" class="text h">{{old('description')}}</textarea>
         @error('description')
         <div class=" text-danger colorRed">
             <strong>{{ $message }}</strong>

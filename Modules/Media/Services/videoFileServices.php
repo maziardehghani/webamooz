@@ -16,6 +16,17 @@ class videoFileServices extends defaultFileService implements fileServiceContrac
         return ['video' => $filename.'.' .$extension];
     }
 
+    public static function getFilename()
+    {
+        $files = self::jsonDecode(self::$media);
+        return (static::$media->is_private ? 'private/' : 'public/') .$files->video;
+    }
+
+    public static function jsonDecode($media)
+    {
+        return json_decode($media->files);
+    }
+
 
 
 }

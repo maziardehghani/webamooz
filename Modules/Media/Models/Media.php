@@ -13,9 +13,9 @@ class Media extends Model
 
 
 
-    const IMAGE_TYPE = '' ;
-    const VIDEO_TYPE = '' ;
-    const AUDIO_TYPE = '' ;
+    const IMAGE_TYPE = 'image' ;
+    const VIDEO_TYPE = 'video' ;
+    const AUDIO_TYPE = 'audio' ;
 
     public static $types = [
         self::IMAGE_TYPE,

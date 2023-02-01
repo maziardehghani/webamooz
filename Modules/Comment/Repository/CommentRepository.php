@@ -6,7 +6,7 @@ use Modules\Comment\Models\Comment;
 use Modules\Course\Models\courses;
 use Modules\RolePermissions\Models\Permission;
 
-class commentRepository
+class CommentRepository
 {
     public function store($value)
     {
@@ -46,7 +46,7 @@ class commentRepository
             return $query->latest()->paginate();
     }
 
-    public function changeStatus($comment, string $status)
+    public function changeStatus($comment, $status)
     {
         return $comment->update([
             'status' => $status

@@ -1,5 +1,10 @@
 <?php
 
 return [
-    'name' => 'Comment'
+    'name' => 'Comment',
+
+    'email'=>
+        [
+            'delay' => 10,
+        ]
 ];

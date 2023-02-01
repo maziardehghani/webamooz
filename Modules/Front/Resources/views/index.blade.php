@@ -5,5 +5,4 @@
         @include('front::layouts.top-info')
         @include('front::layouts.latest')
     </article>
-    @include('front::layouts.latestArticle')
 @endsection

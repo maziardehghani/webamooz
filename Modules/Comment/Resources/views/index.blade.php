@@ -50,10 +50,13 @@
                     <td>{{verta($comment->created_at)}}</td>
                     <td class="{{$comment->status == \Modules\Comment\Models\Comment::STATUS_ACCEPTED ? 'text-success':'text-error'}}">@lang($comment->status)</td>
                     <td>
+                        @can('accept_reject_delete')
                         <a href="{{route('dashboard.comments.delete' , $comment->id)}}" class="item-delete mlg-15" title="حذف"></a>
                         <a href="{{route('dashboard.comments.reject' , $comment->id)}}"  class="item-reject mlg-15" title="رد"></a>
-                        <a href="{{route('dashboard.comments.answers' , $comment->id)}}" class="item-eye mlg-15" title="مشاهده"></a>
                         <a href="{{route('dashboard.comments.accept' , $comment->id)}}"  class="item-confirm mlg-15" title="تایید"></a>
+                        @endcan
+                            <a href="{{route('dashboard.comments.answers' , $comment->id)}}" class="item-eye mlg-15" title="مشاهده"></a>
+
                     </td>
                 </tr>
                 @endforeach

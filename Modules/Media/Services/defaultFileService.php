@@ -10,13 +10,10 @@ class defaultFileService
 
     public static function delete($media)
     {
-        foreach ($media->files as $file)
-        {
-            if ($media->is_private)
-            {
+        foreach ($media->files as $file) {
+            if ($media->is_private) {
                 Storage::delete('private\\' . $file);
-            }else
-            {
+            } else {
                 Storage::delete('public\\' . $file);
             }
         }
@@ -25,25 +22,21 @@ class defaultFileService
     public static function stream($media)
     {
         self::$media = $media;
-        $stream = Storage::readStream(static::getFilename());
 
-        return response()->stream(function () use ($stream)
-        {
+        $stream = Storage::readStream(static::getFilename($media));
+
+        return response()->stream(function () use ($stream) {
             while (ob_get_level() > 0) ob_get_flush();
-           fpassthru($stream);
+            fpassthru($stream);
         },
-        200 ,
+            200,
             [
                 "Content-type" => Storage::mimeType(static::getFilename()),
                 "Content-disposition" => "attachment; filename ='" . static::$media->filename . "'"
-                ]
+            ]
         );
     }
-    public static function getFilename()
-    {
-        $files = json_decode(self::$media->files);
-      return self::$media->is_private ? 'private/' : 'public/ '.$files->original;
-    }
+
 
 
 }

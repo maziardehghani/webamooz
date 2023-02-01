@@ -1,5 +1,10 @@
 <?php
 
 return [
-    'name' => 'Payment'
+    'name' => 'Payment',
+
+    'email'=>
+    [
+        'delay' => 10,
+    ]
 ];

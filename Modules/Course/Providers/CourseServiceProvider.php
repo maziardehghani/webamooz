@@ -23,7 +23,7 @@ class CourseServiceProvider extends ServiceProvider
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'course';
+    protected $moduleNameLower = 'courses';
 
     /**
      * Boot the application events.

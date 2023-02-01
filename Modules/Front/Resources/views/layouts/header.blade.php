@@ -14,9 +14,9 @@
                         @csrf
                         <div class="t-header-searchbox">
                             <input name="searchBox" type="text" placeholder="جستجو دوره ها">
-                            <div class="t-header-search-content">
+                            <div class="t-header-search-content @if(count($searchBox) <= 0) {{'display_none'}} @endif" >
                                 <div class="t-header-search-result">
-                                    @if(isset($searchBox))
+                                    @if(count($searchBox) > 0)
                                         @foreach($searchBox as $course)
                                     <a href="{{$course->path()}}">
                                         <div class="t-header-search-result-right">

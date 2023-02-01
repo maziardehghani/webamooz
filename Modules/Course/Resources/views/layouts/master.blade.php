@@ -7,13 +7,13 @@
         <title>Module Course</title>
 
        {{-- Laravel Mix - CSS File --}}
-       {{-- <link rel="stylesheet" href="{{ mix('css/course.css') }}"> --}}
+       {{-- <link rel="stylesheet" href="{{ mix('css/courses.css') }}"> --}}
 
     </head>
     <body>
         @yield('content')
 
         {{-- Laravel Mix - JS File --}}
-        {{-- <script src="{{ mix('js/course.js') }}"></script> --}}
+        {{-- <script src="{{ mix('js/courses.js') }}"></script> --}}
     </body>
 </html>

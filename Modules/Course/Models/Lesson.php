@@ -59,4 +59,8 @@ class lesson extends Model
         if ($this->media_id)
         return URL::temporarySignedRoute('media.download' ,now()->addDay(), ['media' => $this->media_id]);
     }
+    public function thumb()
+    {
+
+    }
 }

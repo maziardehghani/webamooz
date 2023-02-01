@@ -17,7 +17,16 @@ class imageFileServices extends defaultFileService implements fileServiceContrac
         $path = $dir . $filename . '.' . $extension;
         return self::resize(Storage::path($path) , $dir , $filename , $extension);
     }
+    public static function getFilename()
+    {
+        return (static::$media->is_private ? 'private/' : 'public/') . static::$media->files['original'];
+    }
 
+
+    public static function thumb($media)
+    {
+        return "/storage/" . $media->files['300'];
+    }
 
     private static function resize($img , $dir , $filename , $extension)
     {

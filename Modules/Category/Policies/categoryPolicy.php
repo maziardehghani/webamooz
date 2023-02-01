@@ -21,7 +21,7 @@ class categoryPolicy
     }
     public function manage(User $user)
     {
-        return $user->hasPermissionTo(Permission::PERMISSION_MANAGEMENT);
+        return $user->hasPermissionTo(Permission::PERMISSION_MANAGEMENT)? true : null;
     }
 }
 

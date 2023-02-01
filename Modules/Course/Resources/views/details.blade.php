@@ -8,7 +8,7 @@
         <div class="row no-gutters  ">
             <div class="col-8 bg-white padding-30 margin-left-10 margin-bottom-15 border-radius-3">
                 <div class="margin-bottom-20 flex-wrap font-size-14 d-flex bg-white padding-0">
-                    <p class="mlg-15">دوره مقدماتی تا پیشرفته لاراول</p>
+                    <p class="mlg-15">{{$course->title}}</p>
                     <a href="{{route('dashboard.lessons.create' , $course->id)}}" class="color-2b4a83">آپلود جلسه جدید</a>
                 </div>
 
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="col-4">
-                @include('course::seasons.createDetails')
+                @include('courses::seasons.createDetails')
                 <div class="col-12 bg-white margin-bottom-15 border-radius-3">
                     <p class="box__title">اضافه کردن دانشجو به دوره</p>
                     <form action="" method="post" class="padding-30">

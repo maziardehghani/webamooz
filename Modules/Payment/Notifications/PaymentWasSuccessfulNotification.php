@@ -5,6 +5,7 @@ namespace Modules\Payment\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Modules\Payment\Mail\sendSuccesfulPaymentEmail;
 
 class PaymentWasSuccessfulNotification extends Notification
 {
@@ -29,7 +30,10 @@ class PaymentWasSuccessfulNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return [
+            'database',
+            'mail'
+            ];
     }
 
     /**
@@ -40,10 +44,8 @@ class PaymentWasSuccessfulNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        return (new sendSuccesfulPaymentEmail($this->payment->paymentable->title))
+            ->to($notifiable->email);
     }
 
     /**

@@ -30,12 +30,10 @@ class CommentSubmittedNotif extends Notification
      */
     public function via($notifiable)
     {
-        $channel = [
-//            'mail'  in the case of when you need to send an email unComment this lines
-        ];
-        $channel[] = 'database';
-
-        if (! is_null($notifiable->mobile)) $channel[] = KavenegarChannel::class;
+        $channel = [];
+          $channel[]= 'database';
+//        $channel[]= 'mail';
+//        if (! is_null($notifiable->mobile)) $channel[] = KavenegarChannel::class;
 //        if (! is_null($notifiable->telegram)) $channel[] = TelegramChannel::class;  cant use Telegram Notification cause of filtering issue
 
         return $channel;

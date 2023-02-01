@@ -5,36 +5,34 @@ namespace Modules\Comment\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Modules\Comment\Event\CommentSubmittedEvent;
 use Modules\Comment\Http\Requests\CommentRequest;
+use Modules\Comment\Jobs\SendEmail;
 use Modules\Comment\Models\Comment;
-use Modules\Comment\Repository\commentRepository;
+use Modules\Comment\Repository\CommentRepository;
 use Modules\RolePermissions\Models\Permission;
 
 class CommentController extends Controller
 {
     private $commentRepository;
-    public function __construct(commentRepository $commentRepository)
+    public function __construct(CommentRepository $commentRepository)
     {
         $this->commentRepository = $commentRepository;
     }
 
     public function store(CommentRequest $request)
     {
-        $comment = $this->commentRepository->store($request->all());
-        event(new CommentSubmittedEvent($comment));
-
-//        newFeedback('موفقیت' , 'نظر شما با موفقیت ثبت شد' , 'success');
+        $this->commentRepository->store($request->all());
         return redirect()->back();
     }
 
     public function index()
     {
-        $this->authorize('manage' , Comment::class);
+        $this->authorize('index' , Comment::class);
         if (!auth()->user()->hasAnyPermission([Permission::PERMISSION_MANAGEMENT , Permission::PERMISSION_SUPER_ADMIN]))
         {
             $comments = $this->commentRepository->getComments(Comment::STATUS_ACCEPTED,auth()->id());
         }else
         {
-            $comments = $this->commentRepository->getComments(request('status') , null);
+            $comments = $this->commentRepository->getComments(request('status'));
         }
 
         return view('comment::index' , compact('comments'));
@@ -43,22 +41,21 @@ class CommentController extends Controller
     {
         $this->authorize('manage' , Comment::class);
         $comment = $this->commentRepository->find($id);
+        event(new CommentSubmittedEvent($comment));
         $this->commentRepository->changeStatus($comment , Comment::STATUS_ACCEPTED);
-
-//        newFeedback('موفقیت' , 'تغییر وضعیت' , 'موفق');
         return redirect()->back();
     }
     public function reject($id)
     {
         $this->authorize('manage' , Comment::class);
-        $this->commentRepository->changeStatus($id , Comment::STATUS_REJECTED);
-//        newFeedback('موفقیت' , 'تغییر وضعیت' , 'موفق');
+        $comment = $this->commentRepository->find($id);
+        $this->commentRepository->changeStatus($comment , Comment::STATUS_REJECTED);
         return redirect()->back();
     }
     public function answers($id)
     {
         $comment = $this->commentRepository->findComment($id);
-        $this->authorize('show' ,$comment);
+        $this->authorize('answer' ,$comment);
 
         return view('comment::answers' , compact('comment'));
     }

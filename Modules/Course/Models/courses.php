@@ -47,59 +47,66 @@ class courses extends Model
     {
         return $this->belongsTo(Media::class, 'banner_id');
     }
+    public function getThumbAttribute()
+    {
+        return '/storage/'.$this->banner->files[300];
+    }
 
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id');
     }
-
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-
     public function season()
     {
         return $this->hasMany(Season::class, 'course_id');
     }
-
     public function lesson()
     {
         return $this->hasMany(lesson::class, 'lesson_id');
     }
-
     public function timeDuration()
     {
         return (new CourseRepository())->getDuration($this->id);
 
     }
-
     public function formattedTime()
     {
         $time = $this->timeDuration();
         return CarbonInterval::minutes($time)->cascade()->forHumans();
     }
-
     public function path()
     {
-        return route('course.show', $this->id . '-' . $this->slug);
+        return route('courses.show', $this->id . '-' . $this->slug);
     }
-
     public function student()
     {
         return $this->belongsToMany(User::class, 'course_student', 'course_id', 'user_id');
     }
-
     public function lessonsCount()
     {
         return (new LessonRepository())->lessonCount($this->id);
     }
-
     public function shortUrl()
     {
-        return route('course.show', $this->id);
+        return route('courses.show', $this->id);
     }
+    public function hasStudent($user)
+    {
+        return (new CourseRepository())->hasStudent($this, $user);
+    }
+    public function checkCode($code)
+    {
+        self::$code = $code;
 
+        if (!is_null($this->special_discount()))
+            return $this->special_discount();
+
+        return false;
+    }
     public function payments()
     {
         return $this->morphMany(Payment::class, 'paymentable');
@@ -109,12 +116,6 @@ class courses extends Model
     {
         return $this->morphOne(Discount::class, 'discountable');
     }
-
-    public function hasStudent($user)
-    {
-        return (new CourseRepository())->hasStudent($this, $user);
-    }
-
     public function getPrice()
     {
         return $this->price;
@@ -143,7 +144,7 @@ class courses extends Model
 
     private function checkCourseHasDiscount()
     {
-            return $this->discounts ? true : false;
+        return $this->discounts ? true : false;
     }
 
     public function global_discount()
@@ -156,7 +157,10 @@ class courses extends Model
         }
         return false;
     }
-
+    public function comments()
+    {
+        return $this->morphMany(Comment::class , 'commentable');
+    }
     public function special_discount()
     {
         if ($this->checkCourseHasDiscount()) {
@@ -167,22 +171,6 @@ class courses extends Model
         }
         return false;
     }
-
-    public function checkCode($code)
-    {
-        self::$code = $code;
-
-        if (!is_null($this->special_discount()))
-            return $this->special_discount();
-
-        return false;
-    }
-
-    public function comments()
-    {
-        return $this->morphMany(Comment::class , 'commentable');
-    }
-
 }
 
 

@@ -2,6 +2,7 @@
 
 namespace Modules\Comment\Listeners;
 
+use Modules\Comment\Jobs\SendEmail;
 use Modules\Comment\Notifications\CommentSubmittedNotif;
 
 class SendCommentSubmittedListener

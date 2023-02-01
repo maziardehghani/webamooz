@@ -176,7 +176,9 @@ a, span {
     cursor: pointer;
 }
 
-
+.display_none{
+    display: none
+}
 .t-header-search-content {
     position: absolute;
     background: #fff;
@@ -192,7 +194,6 @@ a, span {
     left: 0;
     padding: 70px 12px 20px;
     transform-origin: top left;
-    display: none;
     margin-bottom: 20px;
     height: 460px;
 }

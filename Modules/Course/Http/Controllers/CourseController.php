@@ -46,7 +46,7 @@ class CourseController extends Controller
             $courses = $this->courseRepository->getCoursesByteacherId(auth()->id());
         }
 
-        return view('course::index' , compact('courses'));
+        return view('courses::index' , compact('courses'));
     }
 
     public function create()
@@ -55,7 +55,7 @@ class CourseController extends Controller
         $teachers = $this->userRepository->getTeachers();
         $categories = $this->categoryRepository->all();
 
-        return view('course::layouts.create' , compact('teachers' , 'categories'));
+        return view('courses::layouts.create' , compact('teachers' , 'categories'));
     }
 
     public function details($courseID)
@@ -63,7 +63,7 @@ class CourseController extends Controller
         $course = $this->courseRepository->findById($courseID);
         $this->authorize('details', $course);
         $lessons = $this->lessonRepository->getCourseLesson($courseID);
-        return view('course::details' , compact('course' , 'lessons'));
+        return view('courses::details' , compact('course' , 'lessons'));
     }
 
 
@@ -78,7 +78,7 @@ class CourseController extends Controller
 
     public function show($id)
     {
-        return view('course::show');
+        return view('courses::show');
     }
 
     public function edit($id)
@@ -87,7 +87,7 @@ class CourseController extends Controller
         $this->authorize('edit' , $course);
         $categories = $this->categoryRepository->all();
         $teachers = $this->userRepository->getTeachers();
-        return view('course::layouts.edit' , compact('course' , 'categories' , 'teachers'));
+        return view('courses::layouts.edit' , compact('course' , 'categories' , 'teachers'));
     }
 
     public function update(CourseRequest $request, $id)
@@ -172,7 +172,6 @@ class CourseController extends Controller
         if ($amount <= 0 )
         {
             $this->courseRepository->addStudentToCourse($course , auth()->id());
-//            newFeedback('عملیات موفقیت امیز' , 'دوره مورد نظر با موفقیت خریداری شد' , 'success');
             return redirect()->to($course->path());
         }
         $payment = PaymentService::generate($amount , $course , auth()->user() , $course->teacher_id , $this->checkCode);

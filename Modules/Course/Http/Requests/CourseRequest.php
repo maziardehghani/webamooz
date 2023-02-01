@@ -43,7 +43,7 @@ class CourseRequest extends FormRequest
         if (request()->method === 'PUT')
         {
             $rule['image'] = 'nullable|mimes:jpg,jpeg,png';
-            $rule['slug'] = 'required|min:3|max:193|unique:courses,slug,' . request()->route('course');
+            $rule['slug'] = 'required|min:3|max:193|unique:courses,slug,' . request()->route('courses');
         }
 
         return $rule;

@@ -25,7 +25,7 @@ class SeasonController extends Controller
     {
         $season = $this->seasonRepository->findById($seasonId);
         $this->authorize('editSeason' , $season);
-        return view('course::seasons.editDetails' , compact('season'));
+        return view('courses::seasons.editDetails' , compact('season'));
     }
     public function update(SeasonRequest $request ,$seasonId)
     {

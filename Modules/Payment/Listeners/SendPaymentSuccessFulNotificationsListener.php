@@ -2,6 +2,7 @@
 
 namespace Modules\Payment\Listeners;
 
+use Modules\Payment\Jobs\sendSuccessfulPaymentEmail;
 use Modules\Payment\Notifications\PaymentWasSuccessfulNotification;
 
 class SendPaymentSuccessFulNotificationsListener
@@ -24,6 +25,6 @@ class SendPaymentSuccessFulNotificationsListener
      */
     public function handle($event)
     {
-        $event->payment->seller->notify(new PaymentWasSuccessfulNotification($event->payment));
+        sendSuccessfulPaymentEmail::dispatch($event->payment)->onQueue('payment_email')->delay(now()->addSeconds(config('payment.email.delay')));
     }
 }
