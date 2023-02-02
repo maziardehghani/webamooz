@@ -3,7 +3,6 @@
 namespace Modules\Front\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Jobs\SendEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Modules\Course\Models\courses;
@@ -12,15 +11,18 @@ use Modules\Course\Repository\LessonRepository;
 use Modules\RolePermissions\Models\Permission;
 use Modules\Slider\Repositories\SliderRepository;
 use Modules\User\Models\User;
+use Modules\User\Repositories\UserRepository;
 
 class FrontController extends Controller
 {
     private $courseRepository;
     private $sliderRepository;
-    public function __construct(CourseRepository $courseRepository , SliderRepository $sliderRepository)
+    private $userRepository;
+    public function __construct(CourseRepository $courseRepository , SliderRepository $sliderRepository , UserRepository $userRepository)
     {
         $this->courseRepository = $courseRepository;
         $this->sliderRepository = $sliderRepository;
+        $this->userRepository = $userRepository;
     }
     public function index(Request $request)
     {
@@ -53,9 +55,10 @@ class FrontController extends Controller
     }
     public function TutorShow($username)
     {
-        $teacher = User::permission(Permission::PERMISSION_TEACHER)->where('username' , $username)->first();
 
-        return view('front::tutor' , compact('teacher'));
+        $teacher = $this->userRepository->findByuserName($username);
+        $teacherCourses = $this->courseRepository->getCoursesByteacherId($teacher->id);
+        return view('front::tutor' , compact('teacher' , 'teacherCourses'));
     }
     public function discounterPage(courses $course)
     {

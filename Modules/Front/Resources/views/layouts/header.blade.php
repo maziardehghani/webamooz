@@ -1,10 +1,10 @@
 <header class="t-header">
-    <div class="campaign">
-        <div class="container">
-            <a class="message">تخفیف «۳۰٪» همه دوره‌ها فقط تا</a>
-            <div id="count-down-timer" data-countdown="2021-07-8 00:00:00" class="count-down-timer"></div>
-        </div>
-    </div>
+{{--    <div class="campaign">--}}
+{{--        <div class="container">--}}
+{{--            <a class="message">تخفیف «۳۰٪» همه دوره‌ها فقط تا</a>--}}
+{{--            <div id="count-down-timer" data-countdown="2021-07-8 00:00:00" class="count-down-timer"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="container">
         <div class="t-header-row">
             <div class="t-header-right">
@@ -45,9 +45,9 @@
 
                 </div>
 
-                <div class="join-teachers">
-                    <a href="become-a-teacher.html">تدریس در وب آموز</a>
-                </div>
+{{--                <div class="join-teachers">--}}
+{{--                    <a href="become-a-teacher.html">تدریس در وب آموز</a>--}}
+{{--                </div>--}}
                 @auth()
                 <div class="user-menu-account">
                     <div class="user-image">

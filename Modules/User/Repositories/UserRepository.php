@@ -68,4 +68,10 @@ class UserRepository
     {
         $user->givePermissionTo($value->permission);
     }
+
+    public function findByuserName($username)
+    {
+        return User::Permission(Permission::PERMISSION_TEACHER)->where('username' , $username)->first();
+
+    }
 }

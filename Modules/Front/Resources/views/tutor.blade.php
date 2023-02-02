@@ -10,7 +10,7 @@
                             <span class="tutor-image" id="tutor-image"><img src="{{$teacher->thumb}}" class="tutor-avatar-img"></span>
                             <div class="tutor-author-name">
                                 <a id="tutor-author-name" href="" title="{{$teacher->name}}">
-                                    <h3 class="title"><span class="tutor-author--name">{{$teacher->name}}</span></h3>
+                                    <h3 class="title"><span class="tutor-author--name">{{$teacher->username}}</span></h3>
                                 </a>
                             </div>
                             <div id="Modal1" class="modal">
@@ -44,121 +44,39 @@
         <div class="container">
             <div class="box-filter">
                 <div class="b-head">
-                    <h2>دوره های محمد نیکو</h2>
+                    <h2>دوره های {{$teacher->username}}</h2>
                 </div>
                 <div class="posts">
-                    <div class="col">
-                        <a href="react.html">
-                            <div class="course-status">
-                                تکمیل شده
-                            </div>
-                            <div class="discountBadge">
-                                <p>45%</p>
-                                تخفیف
-                            </div>
-                            <div class="card-img"><img src="img/banner/reactjs.png" alt="reactjs"></div>
-                            <div class="card-title"><h2>دوره مقدماتی تا پیشرفته reactJs</h2></div>
-                            <div class="card-body">
-                                <img src="img/profile.png" alt="محمد نیکو">
-                                <span>محمد نیکو</span>
-                            </div>
-                            <div class="card-details">
-                                <div class="time">135:40:00</div>
-                                <div class="price">
-                                    <div class="discountPrice">159,000</div>
-                                    <div class="endPrice">270,000</div>
+                    @foreach($teacherCourses as $coursesItem)
+                        <div class="col">
+                            <a href="{{$coursesItem->path()}}">
+                                <div class="course-status">
+                                    @lang($coursesItem->status)
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="laravel1.html">
-                            <div class="discountBadge">
-                                <p>45%</p>
-                                تخفیف
-                            </div>
-                            <div class="card-img"><img src="img/banner/php.png" alt="php"></div>
-                            <div class="card-title"><h2>دوره متخصص php بخش مقدماتی</h2></div>
-                            <div class="card-body">
-                                <img src="img/profile.png" alt="محمد نیکو">
-                                <span>محمد نیکو</span>
-                            </div>
-                            <div class="card-details">
-                                <div class="time">135:40:00</div>
-                                <div class="price">
-                                    <div class="discountPrice">159,000</div>
-                                    <div class="endPrice">270,000</div>
+                                @if($coursesItem->global_discount())
+                                    <div class="discountBadge">
+                                        <p>{{$coursesItem->discountPercent()}}%</p>
+                                        تخفیف
+                                    </div>
+                                @endif
+                                <div class="card-img"><img src="{{$coursesItem->banner->thumb}}" alt="{{$coursesItem->title}}"></div>
+                                <div class="card-title"><h2>{{$coursesItem->title}}</h2></div>
+                                <div class="card-body">
+                                    <img src="{{$coursesItem->teacher->thumb}}" alt="{{$coursesItem->teacher->name}}">
+                                    <span>{{$coursesItem->teacher->name}}</span>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="php.html">
-                            <div class="discountBadge">
-                                <p>45%</p>
-                                تخفیف
-                            </div>
-                            <div class="card-img"><img src="img/banner/lara.png" alt="laravel"></div>
-                            <div class="card-title"><h2>دوره ساخت پیام رسان تحت وب مشابه Telegram با Laravel و ReactJs و
-                                    WebSocket به صورت Spa</h2></div>
-                            <div class="card-body">
-                                <img src="img/profile.png" alt="محمد نیکو">
-                                <span>محمد نیکو</span>
-                            </div>
-                            <div class="card-details">
-                                <div class="time">135:40:00</div>
-                                <div class="price">
-                                    <div class="discountPrice">159,000</div>
-                                    <div class="endPrice">270,000</div>
+                                <div class="card-details">
+                                    <div class="time">{{$coursesItem->formattedTime()}}</div>
+                                    <div class="price">
+                                        @if($coursesItem->global_discount())
+                                            <div class="discountPrice">{{number_format($coursesItem->getPrice())}}</div>
+                                        @endif
+                                        <div class="endPrice">{{number_format($coursesItem->FinalPrice())}}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="angular.html">
-                            <div class="discountBadge d-none">
-                                <p>45%</p>
-                                تخفیف
-                            </div>
-                            <div class="card-img"><img src="img/banner/angularjs.jpg" alt="reactjs"></div>
-                            <div class="card-title"><h2>دوره مقدمات تا پیشرفته انگولار به همراه پروژه فروشگاهی</h2></div>
-                            <div class="card-body">
-                                <img src="img/profile.png" alt="محمد نیکو">
-                                <span>محمد نیکو</span>
-                            </div>
-                            <div class="card-details">
-                                <div class="time">135:40:00</div>
-                                <div class="price">
-                                    <div class="discountPrice">159,000</div>
-                                    <div class="endPrice">270,000</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="react.html">
-                            <div class="course-status">
-                                تکمیل شده
-                            </div>
-                            <div class="discountBadge">
-                                <p>45%</p>
-                                تخفیف
-                            </div>
-                            <div class="card-img"><img src="img/banner/restfull-lara.jpg" alt="reactjs"></div>
-                            <div class="card-title"><h2>دوره تولید و توسعه وب سرویس با </h2></div>
-                            <div class="card-body">
-                                <img src="img/profile.png" alt="محمد نیکو">
-                                <span>محمد نیکو</span>
-                            </div>
-                            <div class="card-details">
-                                <div class="time">135:40:00</div>
-                                <div class="price">
-                                    <div class="discountPrice">159,000</div>
-                                    <div class="endPrice">270,000</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
