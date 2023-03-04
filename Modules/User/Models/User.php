@@ -14,6 +14,7 @@ use Modules\Course\Models\Season;
 use Modules\Media\Models\Media;
 use Modules\Payment\Models\Payment;
 use Modules\RolePermissions\Models\Permission;
+use Modules\User\Events\UserRegisterEvent;
 use Modules\User\Notifications\VerifyMailNotification;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
@@ -79,7 +80,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     public function sendEmailVerificationNotification()
     {
-        $this->notify(new VerifyMailNotification());
+        event(new UserRegisterEvent($this));
     }
     public function image()
     {

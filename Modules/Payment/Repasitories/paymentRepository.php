@@ -90,7 +90,10 @@ class paymentRepository
     {
         if (!is_null($email))
         {
-              $this->query->join('users' , 'payments.buyer_id' , 'users.id')->select('payments.*' , 'users.email')->where('users.email' ,'like', '%'. $email .'%' );
+              $this->query
+                  ->join('users' , 'payments.buyer_id' , 'users.id')
+                  ->select('payments.*' , 'users.email')
+                  ->where('users.email' ,'like', '%'. $email .'%' );
         }
         return $this;
     }

@@ -26,7 +26,6 @@ class FrontController extends Controller
     }
     public function index(Request $request)
     {
-
         $sliders = $this->sliderRepository->Banners();
         $adds = $this->sliderRepository->Adds();
         $latestCourses = $this->courseRepository->latestCourses();

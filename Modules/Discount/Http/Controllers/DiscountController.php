@@ -29,7 +29,7 @@ class DiscountController extends Controller
     {
         $this->authorize('create' , Discount::class);
 
-        if (! is_null($request->course))
+        if (!is_null($request->course))
         {
             $this->discountRepository->special_store($request);
         }else

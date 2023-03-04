@@ -8,7 +8,7 @@ use Modules\User\Models\User;
 use Modules\User\Services\VerifyCodeService;
 use Tests\TestCase;
 
-class registerTest extends TestCase
+class RegisterTest extends TestCase
 {
     use RefreshDatabase;
     /**
