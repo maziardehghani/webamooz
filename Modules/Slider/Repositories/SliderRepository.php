@@ -6,7 +6,7 @@ use Modules\Slider\Models\Slider;
 
 class SliderRepository
 {
-    public function Banners()
+    public function get_Banners()
     {
         return Slider::query()
             ->where('type' , Slider::DYNAMIC_BANNER)

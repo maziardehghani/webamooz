@@ -19,7 +19,7 @@
     <form action="/reset-password" class="form" method="post">
         @csrf
         <input type="hidden" name="token" value="{{ request('token')}}">
-        <a class="account-logo" href="index.html">
+        <a class="account-logo" href="{{route('Front.index')}}">
             <img src="img/weblogo.png" alt="">
         </a>
         <div class="form-content form-account">
@@ -30,14 +30,14 @@
                 <strong>{{ $message }}</strong>
             </div>
             @enderror
-            <input type="text" class="txt txt-l z " required
+            <input type="password" class="txt txt-l z " required
                    autocomplete="new-password" name="password" value="{{old('password')}}" placeholder="رمز عبور *">
             @error('password')
             <div class=" text-danger">
                 <strong>{{ $message }}</strong>
             </div>
             @enderror
-            <input type="text" class="txt txt-l " required
+            <input type="password" class="txt txt-l " required
                    name="password_confirmation" placeholder="تایید رمز عبور *">
             @error('password_confirmation')
             <div class="text-danger">

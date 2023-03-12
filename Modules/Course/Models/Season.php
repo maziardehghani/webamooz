@@ -37,4 +37,8 @@ class Season extends Model
     {
         return $this->belongsTo(courses::class , 'course_id');
     }
+    public function lessons()
+    {
+        return $this->hasMany(lesson::class , 'season_id');
+    }
 }

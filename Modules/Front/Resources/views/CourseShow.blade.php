@@ -49,7 +49,7 @@
                         </span>
                                     </p>
                                 </div>
-                                <a href="{{route('discounterPage.show' , $course->id)}}" class="btn buy ">خرید دوره</a>
+                                <a href="{{route('discounterPage.show' , $course->id)}}" class="btn buy " style="color: #f0e68c">خرید دوره</a>
                             @endif
                         @else
                             <div class="sell_course">
@@ -63,10 +63,8 @@
                         </span>
                                 </p>
                             </div>
-                            <div class="join-teachers">
-                                <a >شما هنوز به حساب کاربری خود وارد نشده اید</a>
-                            </div>
-                            <a href="{{route('login')}}" class="btn buy">ورود به حساب </a>
+
+                            <a href="{{route('login')}}" class="btn buy"  style="color: #f0e68c">ورود به حساب </a>
                         @endauth
 {{--                        <div class="average-rating-sidebar">--}}
 {{--                            <div class="rating-stars">--}}
@@ -178,7 +176,7 @@
                 </div>
                 <div class="episodes-list">
                     <div class="episodes-list--title">فهرست جلسات</div>
-                    @include('front::layouts.lessons')
+                    @include('front::layouts.seasons')
                 </div>
             </div>
         </div>

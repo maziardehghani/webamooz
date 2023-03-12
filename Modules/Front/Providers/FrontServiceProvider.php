@@ -30,6 +30,8 @@ class FrontServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+
     }
 
     /**
@@ -43,13 +45,7 @@ class FrontServiceProvider extends ServiceProvider
             $categories = (new CategoryRepository())->tree();
             $view->with(compact('categories'));
         });
-            view()->composer('front::layouts.header' , function ($view){
-                $searchBox=[];
-                if (request()->has('searchBox')){
-                    $searchBox = (new CourseRepository())->searchCourses(request()->searchBox);
-                }
-                $view->with(compact('searchBox'));
-            });
+
         $this->app->register(RouteServiceProvider::class);
     }
 

@@ -126,7 +126,7 @@
 .main-menu.has-sub > a:before {
     content: '';
     position: absolute;
-    background: #474747;
+    background: #f0e68c;
     width: 10px;
     height: 2px;
     top: 21px;
@@ -137,7 +137,7 @@
 .main-menu.has-sub > a:after {
     content: '';
     position: absolute;
-    background: #474747;
+    background: #f0e68c;
     width: 2px;
     height: 10px;
     top: 17px;
@@ -156,7 +156,7 @@
 }
 
 .sub-menu > div > div a:hover {
-    background-color: #46b2f0;
+    background-color: #f0e68c;
     color: #fff !important
 }
 

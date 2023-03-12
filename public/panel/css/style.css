@@ -111,8 +111,8 @@ a, span {
     color: #444444;
 }
 
-.color-46b2f0 {
-    color: #46b2f0 !important;
+.color-10430a {
+    color: #10430a !important;
 }
 
 .color-2b4a83 {
@@ -397,13 +397,14 @@ textarea {
     user-select: none;
     white-space: nowrap;
     font-weight: 500;
+    color: #f0e68c;
     border-radius: 40px;
     cursor: pointer;
 }
 
 .btn-webamooz_net {
-    background-color: #46b2f0 !important;
-    color: #fff;
+    background-color: #10430a !important;
+    color: #fbf8e0;
 }
 
 .btn-webamooz_net:hover {
@@ -465,11 +466,11 @@ textarea {
 }
 
 .bg-white {
-    background-color: #ffffff !important;
+    background-color: #f0e68c !important;
 }
 
 .bg-e2e2e2 {
-    background-color: #e2e2e2;
+    background-color: #fbf8e0;
 }
 
 .mlg-0 {
@@ -489,7 +490,7 @@ textarea {
 }
 
 .text-success {
-    color: #00b894 !important;
+    color: #10430a !important;
 }
 
 .text-info {
@@ -520,7 +521,7 @@ textarea {
 
 .sidebar__nav {
     width: 250px;
-    background: #fff;
+    background: #f0e68c;
     height: 100%;
     position: fixed;
     transition: all 200ms ease;
@@ -567,12 +568,12 @@ textarea {
 }
 
 .sidebar__nav ul li.is-active a {
-    color: #2b4a83;
-    background-color: #eef2f8;
+    color: #f0e68c;
+    background-color: #10430a;
 }
 
 .sidebar__nav ul li.is-active a:before {
-    color: #2b4a83;
+    color: #f0e68c;
 }
 
 .sidebar__nav.is-active ul li.is-active a {
@@ -580,16 +581,16 @@ textarea {
 }
 
 .sidebar__nav.is-active ul li.is-active a:before {
-    color: #2b4a83;
+    color: #f0e68c;
 }
 
 .sidebar__nav ul li a:hover {
-    background-color: #eef2f8;
+    background-color: #fbf8e0;
     transition: background-color 200ms ease;
 }
 
 .sidebar__nav ul li a:hover:before {
-    color: #2b4a83;
+    color: #10430a;
 }
 
 .padding-0-18 {
@@ -659,7 +660,7 @@ textarea {
     content: "\E020";
 }
 .bg-fafafa{
-    background-color: #fafafa;
+    background-color: #fbf8e0;
 }
 .sidebar__nav .i-checkouts a::before {
     content: "\E0e5";
@@ -1131,7 +1132,7 @@ select {
 .dropdown-select:active,
 .dropdown-select.open {
     background-color: #fff !important;
-    border-color: #46b2f0;
+    border-color: #10430a;
 }
 .discounts .dropdown-select{
     display: none;
@@ -1230,7 +1231,7 @@ select {
 }
 
 .dropdown-select .dd-searchbox:focus {
-    border-color: #46b2f0;
+    border-color: #10430a;
     border-width: 2px;
 }
 
@@ -1452,7 +1453,7 @@ span.tagRemove:hover {
 }
 
 .ui-checkbox input:checked ~ .checkmark {
-    background: #46b2f0;
+    background: #10430a;
 }
 
 .ui-checkbox .checkmark:after {
@@ -1501,7 +1502,7 @@ span.tagRemove:hover {
     height: 10px;
     border-radius: 50%;
     content: '';
-    background-color: #5562eb;
+    background-color: #10430a;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1541,8 +1542,8 @@ span.tagRemove:hover {
 }
 
 .notificationGroup input:checked ~ label:after {
-    background-color: #54e0c7;
-    border-color: #54e0c7;
+    background-color: #10430a;
+    border-color: #10430a;
 }
 
 .notificationGroup input {
@@ -1685,7 +1686,7 @@ span.tagRemove:hover {
     background: #eee;
 }
 .transition-comment.is-answer,.transition-ticket.is-answer{
-    border-right: 3px solid #00b894;
+    border-right: 3px solid #10430a;
 }
 .transition-ticket .transition-ticket-header, .transition-comment .transition-comment-header {
     background-color: #f8f9fa;
@@ -1853,7 +1854,7 @@ span.tagRemove:hover {
 }
 
 .content .posts .card-details span {
-    background: #46b2f0;
+    background: #10430a;
     padding: 0 20px;
     color: #fff !important;
     margin-bottom: 10px;

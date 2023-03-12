@@ -12,11 +12,15 @@
                     <div class="episodes-list-details">
                         <span class="detail-type">{{$lesson->is_free()?'رایگان':''}}</span>
                         <span class="detail-time">{{$lesson->time}} دقیقه</span>
-                            <i class="icon-download"></i>
+                        <i class="icon-download"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        @endforeach
-</div>
+    </div>
+
+
+@endforeach
+
+

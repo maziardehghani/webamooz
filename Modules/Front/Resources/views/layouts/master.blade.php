@@ -10,4 +10,10 @@
 @include('front::layouts.footer')
 @include('front::layouts.foot')
 </body>
+
 </html>
+
+@yield('js')
+
+
+

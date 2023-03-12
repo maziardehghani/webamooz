@@ -11,12 +11,6 @@
             </ul>
         </div>
     @endif
-
-    @if (session('status'))
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ session('status') }}
-        </div>
-    @endif
     <form action="{{'forgot-password'}}" class="form" method="post">
         @csrf
         <a class="account-logo" href="index.html">
@@ -27,8 +21,13 @@
             <br>
             <button class="btn btn-recoverpass">بازیابی</button>
         </div>
+        @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                <p class="text-success"> {{ 'ما یک ایمیل حاوی لینک تایید برای شما ارسال کردیم' }} </p>
+            </div>
+        @endif
         <div class="form-footer">
-            <a href="{{route('register')}}">صفحه ورود</a>
+            <a style="color: #10430a" href="{{route('register')}}">صفحه ورود</a>
         </div>
     </form>
 @endsection

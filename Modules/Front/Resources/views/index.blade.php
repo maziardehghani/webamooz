@@ -6,3 +6,6 @@
         @include('front::layouts.latest')
     </article>
 @endsection
+
+
+

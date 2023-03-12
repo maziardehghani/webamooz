@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Front\Http\Controllers\FrontController;
 
 Route::any('/' , [FrontController::class , 'index'])->name('Front.index');
+Route::any('/search' , [FrontController::class , 'search'])->name('Front.search');
 Route::get('/categories/{category}' , [FrontController::class , 'categories'])->name('category.show');
 Route::get('/courses/C-{slug}' , [FrontController::class , 'CourseShow'])->name('courses.show');
 Route::get('/tutor/{username}' , [FrontController::class , 'TutorShow'])->name('Tutor.show');

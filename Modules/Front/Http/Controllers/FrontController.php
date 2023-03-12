@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Modules\Course\Models\courses;
 use Modules\Course\Repository\CourseRepository;
 use Modules\Course\Repository\LessonRepository;
+use Modules\Course\Repository\SeasonRepository;
 use Modules\RolePermissions\Models\Permission;
 use Modules\Slider\Repositories\SliderRepository;
 use Modules\User\Models\User;
@@ -26,21 +27,33 @@ class FrontController extends Controller
     }
     public function index(Request $request)
     {
-        $sliders = $this->sliderRepository->Banners();
+        $sliders = $this->sliderRepository->get_Banners();
         $adds = $this->sliderRepository->Adds();
         $latestCourses = $this->courseRepository->latestCourses();
 
         return view('front::index' , compact(['sliders', 'adds' , 'latestCourses']));
+    }
+    public function search()
+    {
+        if (!request()->searchBox)
+        {
+            return redirect()->back();
+        }
+            $courses = (new CourseRepository())->searchCourses(request()->searchBox);
+            return view('front::all_courses' , compact('courses'));
+
     }
     public function categories($category_id)
     {
         $courses = $this->courseRepository->categoryCourses($category_id);
         return view('front::all_courses', compact('courses'));
     }
-    public function CourseShow($slug , CourseRepository $courseRepository , LessonRepository $lessonRepository)
+    public function CourseShow($slug , CourseRepository $courseRepository , LessonRepository $lessonRepository , SeasonRepository $seasonRepository)
     {
         $courseId = $this->extractID($slug ,'C');
         $course = $courseRepository->findById($courseId);
+
+        $seasons = $seasonRepository->getCourseSeason($courseId);
 
         $lessons = $lessonRepository->getAcceptedLessons($courseId);
         if (request()->has('lesson'))
@@ -50,7 +63,7 @@ class FrontController extends Controller
         {
             $lessonVideo = $lessonRepository->getFirstLesson($courseId);
         }
-        return view('front::CourseShow' , compact('course' , 'lessons' , 'lessonVideo'));
+        return view('front::CourseShow' , compact('course' , 'seasons','lessons' , 'lessonVideo'));
     }
     public function TutorShow($username)
     {

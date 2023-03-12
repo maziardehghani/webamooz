@@ -34,7 +34,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => '75640213',
         ]
         );
-        $response->assertRedirect(route('home'));
+        $response->assertRedirect('/');
 
         $this->assertCount(1 , User::all());
     }

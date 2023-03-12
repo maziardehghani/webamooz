@@ -10,29 +10,10 @@
             <div class="t-header-right">
                 <div class="t-header-logo"><a href="/"></a></div>
                 <div class="t-header-search">
-                    <form action="{{route('Front.index')}}" method="post">
+                    <form action="{{route('Front.search')}}" method="post">
                         @csrf
                         <div class="t-header-searchbox">
-                            <input name="searchBox" type="text" placeholder="جستجو دوره ها">
-                            <div class="t-header-search-content @if(count($searchBox) <= 0) {{'display_none'}} @endif" >
-                                <div class="t-header-search-result">
-                                    @if(count($searchBox) > 0)
-                                        @foreach($searchBox as $course)
-                                    <a href="{{$course->path()}}">
-                                        <div class="t-header-search-result-right">
-                                            <p>{{$course->title}}</p>
-                                            <p class="t-header-search-result-right-info">
-                                                مدرس دوره : {{$course->teacher->name}}
-                                            </p>
-                                        </div>
-                                        <div class="t-header-search-result-left">
-                                            <img src="{{$course->banner->thumb}}" alt="">
-                                        </div>
-                                    </a>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
+                            <input name="searchBox" type="text" placeholder="جستجو دوره ها" >
                         </div>
                     </form>
 
@@ -107,15 +88,17 @@
                    </ul>
 
 
-            <div class="dark-light">
-                <svg class="moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none"
-                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                </svg>
-                <svg class="sun" fill="#ffce45" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path d="M277.3 32h-42.7v64h42.7V32zm129.1 43.7L368 114.1l29.9 29.9 38.4-38.4-29.9-29.9zm-300.8 0l-29.9 29.9 38.4 38.4 29.9-29.9-38.4-38.4zM256 128c-70.4 0-128 57.6-128 128s57.6 128 128 128 128-57.6 128-128-57.6-128-128-128zm224 106.7h-64v42.7h64v-42.7zm-384 0H32v42.7h64v-42.7zM397.9 368L368 397.9l38.4 38.4 29.9-29.9-38.4-38.4zm-283.8 0l-38.4 38.4 29.9 29.9 38.4-38.4-29.9-29.9zm163.2 48h-42.7v64h42.7v-64z"></path>
-                </svg>
-            </div>
+            <ul>
+                <div class="dark-light">
+                    <svg class="moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                    <svg class="sun" fill="#ffce45" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path
+                            d="M277.3 32h-42.7v64h42.7V32zm129.1 43.7L368 114.1l29.9 29.9 38.4-38.4-29.9-29.9zm-300.8 0l-29.9 29.9 38.4 38.4 29.9-29.9-38.4-38.4zM256 128c-70.4 0-128 57.6-128 128s57.6 128 128 128 128-57.6 128-128-57.6-128-128-128zm224 106.7h-64v42.7h64v-42.7zm-384 0H32v42.7h64v-42.7zM397.9 368L368 397.9l38.4 38.4 29.9-29.9-38.4-38.4zm-283.8 0l-38.4 38.4 29.9 29.9 38.4-38.4-29.9-29.9zm163.2 48h-42.7v64h42.7v-64z"></path>
+                    </svg>
+                </div>
 
             </ul>
         </div>

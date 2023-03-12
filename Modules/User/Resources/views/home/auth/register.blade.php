@@ -2,8 +2,8 @@
 @section('content')
 
     <form action="" class="form" method="post">
-        <a class="account-logo" href="index.html">
-            <img src="img/weblogo.png" alt="">
+        <a class="account-logo" href="{{route('Front.index')}}">
+            <img src="{{asset('img/weblogo.png')}}" alt="">
         </a>
         <div class="form-content form-account">
             <form action="{{route('register')}}" method="post">
@@ -29,14 +29,14 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @enderror
-                <input type="text" class="txt txt-l z " required
+                <input type="password" class="txt txt-l z " required
                        autocomplete="new-password" name="password" value="{{old('password')}}" placeholder="رمز عبور *">
                 @error('password')
                 <div class=" text-danger">
                     <strong>{{ $message }}</strong>
                 </div>
                 @enderror
-                <input type="text" class="txt txt-l " required
+                <input type="password" class="txt txt-l " required
                        name="password_confirmation" placeholder="تایید رمز عبور *">
                 @error('password_confirmation')
                 <div class="text-danger">
@@ -50,7 +50,7 @@
                 <br>
                 <button class="btn continue-btn">ثبت نام و ادامه</button>
                 <div class="form-footer">
-                    <a href="{{route('login')}}">صفحه ورود</a>
+                    <a style="color: #10430a" href="{{route('login')}}">صفحه ورود</a>
                 </div>
             </form>
 
