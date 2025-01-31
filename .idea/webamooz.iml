@@ -6,10 +6,19 @@
       <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/Feature" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Category/" isTestSource="false" packagePrefix="Modules\Category\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Comment/" isTestSource="false" packagePrefix="Modules\Comment\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Common/" isTestSource="false" packagePrefix="Modules\Common\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Course/" isTestSource="false" packagePrefix="Modules\Course\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Dashboard/" isTestSource="false" packagePrefix="Modules\Dashboard\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Discount/" isTestSource="false" packagePrefix="Modules\Discount\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Front/" isTestSource="false" packagePrefix="Modules\Front\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Media/" isTestSource="false" packagePrefix="Modules\Media\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Payment/" isTestSource="false" packagePrefix="Modules\Payment\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/RolePermissions/" isTestSource="false" packagePrefix="Modules\RolePermissions\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/Slider/" isTestSource="false" packagePrefix="Modules\Slider\" />
+      <sourceFolder url="file://$MODULE_DIR$/Modules/User/" isTestSource="false" packagePrefix="Modules\User\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dasprid/enum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/constant_time_encoding" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fzaninotto/faker" />
@@ -125,6 +134,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/kavenegar/php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kavenegar/laravel-notification" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-notification-channels/telegram" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/carbonphp/carbon-doctrine-types" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/clock" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

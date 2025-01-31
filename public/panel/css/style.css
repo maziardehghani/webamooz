@@ -111,8 +111,8 @@ a, span {
     color: #444444;
 }
 
-.color-10430a {
-    color: #10430a !important;
+.color-87CEEB {
+    color: #87CEEB !important;
 }
 
 .color-2b4a83 {
@@ -397,13 +397,13 @@ textarea {
     user-select: none;
     white-space: nowrap;
     font-weight: 500;
-    color: #f0e68c;
+    color: #f8f8f8;
     border-radius: 40px;
     cursor: pointer;
 }
 
 .btn-webamooz_net {
-    background-color: #10430a !important;
+    background-color: #87CEEB !important;
     color: #fbf8e0;
 }
 
@@ -466,7 +466,7 @@ textarea {
 }
 
 .bg-white {
-    background-color: #f0e68c !important;
+    background-color: #f8f8f8 !important;
 }
 
 .bg-e2e2e2 {
@@ -490,7 +490,7 @@ textarea {
 }
 
 .text-success {
-    color: #10430a !important;
+    color: #87CEEB !important;
 }
 
 .text-info {
@@ -521,7 +521,7 @@ textarea {
 
 .sidebar__nav {
     width: 250px;
-    background: #f0e68c;
+    background: #f8f8f8;
     height: 100%;
     position: fixed;
     transition: all 200ms ease;
@@ -568,12 +568,12 @@ textarea {
 }
 
 .sidebar__nav ul li.is-active a {
-    color: #f0e68c;
-    background-color: #10430a;
+    color: #f8f8f8;
+    background-color: #87CEEB;
 }
 
 .sidebar__nav ul li.is-active a:before {
-    color: #f0e68c;
+    color: #f8f8f8;
 }
 
 .sidebar__nav.is-active ul li.is-active a {
@@ -581,7 +581,7 @@ textarea {
 }
 
 .sidebar__nav.is-active ul li.is-active a:before {
-    color: #f0e68c;
+    color: #f8f8f8;
 }
 
 .sidebar__nav ul li a:hover {
@@ -590,7 +590,7 @@ textarea {
 }
 
 .sidebar__nav ul li a:hover:before {
-    color: #10430a;
+    color: #87CEEB;
 }
 
 .padding-0-18 {
@@ -1132,7 +1132,7 @@ select {
 .dropdown-select:active,
 .dropdown-select.open {
     background-color: #fff !important;
-    border-color: #10430a;
+    border-color: #87CEEB;
 }
 .discounts .dropdown-select{
     display: none;
@@ -1231,7 +1231,7 @@ select {
 }
 
 .dropdown-select .dd-searchbox:focus {
-    border-color: #10430a;
+    border-color: #87CEEB;
     border-width: 2px;
 }
 
@@ -1453,7 +1453,7 @@ span.tagRemove:hover {
 }
 
 .ui-checkbox input:checked ~ .checkmark {
-    background: #10430a;
+    background: #87CEEB;
 }
 
 .ui-checkbox .checkmark:after {
@@ -1502,7 +1502,7 @@ span.tagRemove:hover {
     height: 10px;
     border-radius: 50%;
     content: '';
-    background-color: #10430a;
+    background-color: #87CEEB;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1542,8 +1542,8 @@ span.tagRemove:hover {
 }
 
 .notificationGroup input:checked ~ label:after {
-    background-color: #10430a;
-    border-color: #10430a;
+    background-color: #87CEEB;
+    border-color: #87CEEB;
 }
 
 .notificationGroup input {
@@ -1686,7 +1686,7 @@ span.tagRemove:hover {
     background: #eee;
 }
 .transition-comment.is-answer,.transition-ticket.is-answer{
-    border-right: 3px solid #10430a;
+    border-right: 3px solid #87CEEB;
 }
 .transition-ticket .transition-ticket-header, .transition-comment .transition-comment-header {
     background-color: #f8f9fa;
@@ -1854,7 +1854,7 @@ span.tagRemove:hover {
 }
 
 .content .posts .card-details span {
-    background: #10430a;
+    background: #87CEEB;
     padding: 0 20px;
     color: #fff !important;
     margin-bottom: 10px;

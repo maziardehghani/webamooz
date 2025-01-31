@@ -25,7 +25,7 @@ class CreatLessonsTable extends Migration
             $table->string('slug');
             $table->longText('body')->nullable();
             $table->tinyInteger('time')->nullable();
-            $table->enum('confirmation_status' , \Modules\Course\Models\lesson::$confirmationStatuses)
+            $table->enum('confirmation_status' , \Modules\Course\Models\Lesson::$confirmationStatuses)
             ->default(\Modules\Course\Models\lesson::CONFIRMATION_STATUS_PENDING);
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

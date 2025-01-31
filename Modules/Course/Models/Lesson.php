@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\URL;
 use Modules\Media\Models\Media;
 use Modules\User\Models\User;
 
-class lesson extends Model
+class Lesson extends Model
 {
     use HasFactory;
     protected $guarded =[];

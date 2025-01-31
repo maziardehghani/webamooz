@@ -5,7 +5,7 @@ namespace Modules\Course\Repository;
 
 use Illuminate\Support\Str;
 use Modules\Course\Models\courses;
-use Modules\Course\Models\lesson;
+use Modules\Course\Models\Lesson;
 
 class CourseRepository
 {
@@ -84,7 +84,7 @@ class CourseRepository
     }
     public function getDuration($course_id)
     {
-        return lesson::where(['course_id' => $course_id , 'confirmation_status' => courses::CONFIRMATION_STATUS_ACCEPTED])->sum('time');
+        return Lesson::where(['course_id' => $course_id , 'confirmation_status' => courses::CONFIRMATION_STATUS_ACCEPTED])->sum('time');
     }
 
     public function addStudentToCourse(courses $courses, $student_id)
