@@ -9,7 +9,7 @@
             تخفیف
         </div>
         @endif
-        <div class="card-img"><img src="{{$coursesItem->banner->thumb}}" alt="{{$coursesItem->title}}"></div>
+        <div class="card-img"><img src="{{$coursesItem->banner?->thumb}}" alt="{{$coursesItem->title}}"></div>
         <div class="card-title"><h2>{{$coursesItem->title}}</h2></div>
         <div class="card-body">
             <img src="{{$coursesItem->teacher->thumb}}" alt="{{$coursesItem->teacher->name}}">

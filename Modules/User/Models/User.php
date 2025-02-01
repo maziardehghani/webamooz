@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
          'email' => 'maziardehghani1380@gmail.com',
          'password' => '75640213' ,
          'username' => 'مازیار دهقانی' ,
-         'permissions' => [Permission::PERMISSION_SUPER_ADMIN],
+         'permissions' => [Permission::PERMISSION_SUPER_ADMIN, Permission::PERMISSION_TEACHER],
          ]
     ];
     public function getThumbAttribute()

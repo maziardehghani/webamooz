@@ -15,14 +15,13 @@ class CreateSliderTable extends Migration
     {
         Schema::create('slider', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('banner_id')->nullable();
+            $table->unsignedBigInteger('banner_id')->nullable();
             $table->string('title')->nullable();
             $table->float('priority');
             $table->string('link')->nullable();
             $table->boolean('status')->default(0);
             $table->enum('type' , \Modules\Slider\Models\Slider::$types)
                 ->default(\Modules\Slider\Models\Slider::DYNAMIC_BANNER);
-            $table->foreign('banner_id')->references('id')->on('media')->onDelete('set null');
             $table->timestamps();
         });
     }

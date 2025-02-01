@@ -31,7 +31,7 @@
                     <tr role="row" class="">
                         <td><a href="">{{$slider->priority}}</a></td>
                         <td><a href="">{{$slider->title}}</a></td>
-                        <td><a href=""><img class="img__slideshow" src="{{$slider->banner->thumb}}" alt=""></a>
+                        <td><a href=""><img class="img__slideshow" src="{{$slider->banner?->thumb}}" alt=""></a>
                         </td>
                         <td><a href="{{$slider->link}}">{{$slider->link}}</a></td>
                         <td>{{verta($slider->created_at)}}</td>

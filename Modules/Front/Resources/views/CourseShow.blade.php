@@ -9,15 +9,15 @@
                     <div class="breadcrumb">
                         <ul>
                             <li><a href="/" title="خانه">خانه</a></li>
-                            @if($course->category->parentCategory)
+                            @if($course->category?->parentCategory)
                                 <li>
-                                    <a href="{{$course->category->parentCategory->path()}}"
-                                       title="{{$course->category->parentCategory->title}}">
-                                        {{$course->category->parentCategory->title}}
+                                    <a href="{{$course->category?->parentCategory->path()}}"
+                                       title="{{$course->category?->parentCategory->title}}">
+                                        {{$course->category?->parentCategory->title}}
                                     </a>
                                 </li>
                             @endif
-                            <li><a href="{{$course->category->path()}}" title="{{$course->category->title}}">{{$course->category->title}}</a></li>
+                            <li><a href="{{$course->category?->path()}}" title="{{$course->category?->title}}">{{$course->category?->title}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -122,12 +122,12 @@
                     </div>
                     <div class="course-teacher-details">
                         <div class="top-part">
-                            <a href="{{route('Tutor.show' , $course->teacher->username)}}"><img alt="{{$course->teacher->name}}" class="img-fluid lazyloaded" src="{{$course->teacher->thumb}}" loading="lazy">
+                            <a href="{{route('Tutor.show' , $course->teacher?->username)}}"><img alt="{{$course->teacher?->name}}" class="img-fluid lazyloaded" src="{{$course->teacher->thumb}}" loading="lazy">
                                 <noscript>
-                                    <img class="img-fluid" src="{{$course->teacher->thumb}}" alt="{{$course->teacher->name}}"></noscript>
+                                    <img class="img-fluid" src="{{$course->teacher?->thumb}}" alt="{{$course->teacher?->name}}"></noscript>
                             </a>
                             <div class="name">
-                                <a href="{{route('Tutor.show' , $course->teacher->username)}}" class="btn-link"><h6>{{$course->teacher->name}}</h6>
+                                <a href="{{route('Tutor.show' , $course->teacher?->username)}}" class="btn-link"><h6>{{$course->teacher?->name}}</h6>
                                 </a>
                                 <span class="job-title"> مدرس سایت </span>
                             </div>
@@ -149,7 +149,7 @@
             </div>
             <div class="content-left">
                 @if($lessonVideo)
-                    @if($lessonVideo->media->type == 'video')
+                    @if($lessonVideo->media?->type == 'video')
                         <div class="preview">
                         <video width="100%" controls="" poster="{{$course->thumb}}">
                             <source  src="@can('download' , $lessonVideo){{ $lessonVideo->downloadLink()}}@endcan" type="video/mp4">

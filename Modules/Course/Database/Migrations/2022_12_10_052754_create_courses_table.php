@@ -15,9 +15,9 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('teacher_id');
-            $table->foreignId('category_id')->nullable();
-            $table->foreignId('banner_id')->nullable();
+            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('banner_id')->nullable();
             $table->string('title');
             $table->string('slug');
             $table->float('priority')->nullable();
@@ -27,9 +27,6 @@ class CreateCoursesTable extends Migration
             $table->enum('status' , \Modules\Course\Models\courses::$statuses);
             $table->enum('confirmation_status' , \Modules\Course\Models\courses::$confirmationStatuses);
             $table->longText('description')->nullable();
-            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('category')->onDelete('set null');
-            $table->foreign('banner_id')->references('id')->on('media')->onDelete('set null');
             $table->timestamps();
         });
     }

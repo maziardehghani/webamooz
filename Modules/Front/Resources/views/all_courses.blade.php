@@ -15,11 +15,11 @@
                                 تخفیف
                             </div>
                         @endif
-                        <div class="card-img"><img src="{{$coursesItem->banner->thumb}}" alt="{{$coursesItem->title}}"></div>
+                        <div class="card-img"><img src="{{$coursesItem->banner?->thumb}}" alt="{{$coursesItem->title}}"></div>
                         <div class="card-title"><h2>{{$coursesItem->title}}</h2></div>
                         <div class="card-body">
-                            <img src="{{$coursesItem->teacher->thumb}}" alt="{{$coursesItem->teacher->name}}">
-                            <span>{{$coursesItem->teacher->name}}</span>
+                            <img src="{{$coursesItem->teacher?->thumb}}" alt="{{$coursesItem->teacher?->name}}">
+                            <span>{{$coursesItem->teacher?->name}}</span>
                         </div>
                         <div class="card-details">
                             <div class="time">{{$coursesItem->formattedTime()}}</div>

@@ -15,14 +15,12 @@ class CreateSeasonsTable extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id');
-            $table->foreignId('user_id');
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->tinyInteger('number');
             $table->enum('confirmation_status' , \Modules\Course\Models\Season::$confirmationStatuses)
             ->default(\Modules\Course\Models\Season::CONFIRMATION_STATUS_PENDING);
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

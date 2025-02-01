@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('image_id')->nullable();
+            $table->unsignedBigInteger('image_id')->nullable();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('username' , 40)->nullable();
@@ -28,7 +28,6 @@ class CreateUsersTable extends Migration
             $table->string('ip')->nullable();
             $table->string('facebook')->nullable();
             $table->enum('status' , \Modules\User\Models\User::$statuses)->nullable();
-            $table->foreign('image_id')->references('id')->on('media')->onDelete('set null');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

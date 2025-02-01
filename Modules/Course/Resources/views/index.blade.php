@@ -36,10 +36,10 @@
                         @foreach($courses as $course)
 
                             <tr role="row" class="">
-                                <td><img src="{{$course->banner->thumb}}" width="80"></td>
+                                <td><img src="{{$course->banner?->thumb}}" width="80"></td>
                                 <td><a href="">{{$course->priority}}</a></td>
                                 <td><a href="">{{$course->title}}</a></td>
-                                <td><a href="">{{$course->teacher->name}}</a></td>
+                                <td><a href="">{{$course->teacher?->name}}</a></td>
                                 <td>{{$course->price}}</td>
                                 <td><a href="{{route('dashboard.courses.details' , $course->id)}}">مشاهده</a></td>
                                 <td>{{$course->percent}}</td>
