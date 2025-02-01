@@ -33,7 +33,7 @@ class DashboardServiceProvider extends ServiceProvider
             config()->set('sidebar.item.dashboard',
                 [
                     'icon' => 'i-dashboard',
-                    'title' => 'پیشخوان',
+                    'title' => 'Dashboard',
                     'url' => route('dashboard'),
 
                 ]

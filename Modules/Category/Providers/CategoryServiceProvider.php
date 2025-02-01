@@ -42,7 +42,7 @@ class CategoryServiceProvider extends ServiceProvider
             config()->set('sidebar.item.category',
                 [
                     'icon' => 'i-categories',
-                    'title' => 'دسته بندی ها',
+                    'title' => 'Categories',
                     'url' => route('dashboard.categories'),
                     'permission' => Permission::PERMISSION_MANAGEMENT,
                 ]

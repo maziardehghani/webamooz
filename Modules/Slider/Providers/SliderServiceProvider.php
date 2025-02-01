@@ -44,7 +44,7 @@ class SliderServiceProvider extends ServiceProvider
             config()->set('sidebar.item.slider' , [
 
                 'icon' => 'i-banners',
-                'title' => 'بنر ها',
+                'title' => 'Sliders',
                 'url' => route('dashboard.sliders'),
                 'permission' => [Permission::PERMISSION_MANAGEMENT]
                 ]);

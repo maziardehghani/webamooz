@@ -44,7 +44,7 @@ class CommentServiceProvider extends ServiceProvider
         $this->app->booted(function () {
             config()->set('sidebar.item.comment', [
                 'icon' => 'i-comments',
-                'title' => 'نظرات',
+                'title' => 'Comments',
                 'url' => route('dashboard.comments'),
                 'permission' => [Permission::PERMISSION_TEACHER
                 , Permission::PERMISSION_MANAGEMENT]

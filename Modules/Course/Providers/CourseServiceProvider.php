@@ -50,7 +50,7 @@ class CourseServiceProvider extends ServiceProvider
             config()->set('sidebar.item.courses',
             [
                 'icon' => 'i-courses',
-                'title' =>'دوره ها',
+                'title' =>'Courses',
                 'url' => route('dashboard.courses'),
                 'permission' => [
                     Permission::PERMISSION_MANAGEMENT,

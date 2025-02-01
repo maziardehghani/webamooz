@@ -48,7 +48,7 @@ class UserServiceProvider extends ServiceProvider
             config()->set('sidebar.item.user',
                 [
                     'icon' => 'i-users',
-                    'title' => 'کاربران',
+                    'title' => 'Users',
                     'url' => route('dashboard.users'),
                     'permission' => Permission::PERMISSION_MANAGEMENT,
 
@@ -57,7 +57,7 @@ class UserServiceProvider extends ServiceProvider
             config()->set('sidebar.item.profile',
                 [
                     'icon' => ' i-slideshow',
-                    'title' => 'اطلاعات کاربری',
+                    'title' => 'User Profile',
                     'url' => route('dashboard.users.profile'),
                 ]
             );

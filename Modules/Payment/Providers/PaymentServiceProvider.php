@@ -53,7 +53,7 @@ class PaymentServiceProvider extends ServiceProvider
             config()->set('sidebar.item.myShop',
                 [
                     'icon' => 'i-my__purchases ',
-                    'title' =>'خرید های من',
+                    'title' =>'my payments',
                     'url' => route('dashboard.myShop.index'),
 
                 ]
@@ -61,7 +61,7 @@ class PaymentServiceProvider extends ServiceProvider
             config()->set('sidebar.item.payments',
                 [
                     'icon' => 'i-transactions',
-                    'title' =>'تراکنش ها',
+                    'title' =>'transactions',
                     'url' => route('dashboard.payments'),
                     'permission' => [
                         Permission::PERMISSION_MANAGEMENT,
@@ -71,7 +71,7 @@ class PaymentServiceProvider extends ServiceProvider
             config()->set('sidebar.item.sattlementRequest',
                 [
                     'icon' => 'i-checkout__request',
-                    'title' =>'درخواست تسویه حساب',
+                    'title' =>'settlement request',
                     'url' => route('dashboard.sattlement.create'),
                     'permission' => [
                         Permission::PERMISSION_MANAGEMENT,
@@ -82,7 +82,7 @@ class PaymentServiceProvider extends ServiceProvider
             config()->set('sidebar.item.sattlement',
                 [
                     'icon' => 'i-checkouts',
-                    'title' =>'تسویه حساب',
+                    'title' =>'settlement',
                     'url' => route('dashboard.sattlement.index'),
                     'permission' => [
                         Permission::PERMISSION_MANAGEMENT,
