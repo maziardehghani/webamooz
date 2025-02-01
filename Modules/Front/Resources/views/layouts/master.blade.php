@@ -1,8 +1,7 @@
-
-    <!doctype html>
-<html lang="fa">
+<!doctype html>
+<html lang="en" dir="ltr">
 @include('front::layouts.head')
-<body >
+<body>
 @include('front::layouts.header')
 <main id="index">
     @yield('content')

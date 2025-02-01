@@ -47,7 +47,7 @@ class CourseSeeder extends Seeder
         foreach ($courses as $course) {
             $course = Courses::query()->create([
                 'teacher_id' => 1, // Assuming a single teacher for simplicity
-                'category_id' => $faker->optional()->numberBetween(1, 20),
+                'category_id' => 1,
                 'banner_id' => $faker->optional()->numberBetween(1, 50),
                 'title' => $course['title'],
                 'slug' => Str::slug($course['title']),

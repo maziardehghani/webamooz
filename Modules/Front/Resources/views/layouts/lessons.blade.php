@@ -10,8 +10,8 @@
             <div class="section-left">
                 <div class="episodes-list-details">
                     <div class="episodes-list-details">
-                        <span class="detail-type">{{$lesson->is_free()?'رایگان':''}}</span>
-                        <span class="detail-time">{{$lesson->time}} دقیقه</span>
+                        <span class="detail-type">{{$lesson->is_free()?'free':''}}</span>
+                        <span class="detail-time">{{$lesson->time}} minutes</span>
                         <i class="icon-download"></i>
                         </a>
                     </div>

@@ -71,7 +71,7 @@ class CourseRepository
     {
         return courses::where('confirmation_status' , courses::CONFIRMATION_STATUS_ACCEPTED)
             ->latest()
-            ->take(12)
+            ->take(8)
             ->get();
     }
     public function MostViewCourses()

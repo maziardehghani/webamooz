@@ -29,12 +29,12 @@
                     <div class="tutor-item">
                         <div class="stat">
                             <span class="tutor-number tutor-count-courses">{{count($teacher->course)}} </span>
-                            <span class="">تعداد دوره ها</span>
+                            <span class="">Number of Courses</span>
                         </div>
                         <div class="stat">
 
                             <span class="tutor-number">{{$teacher->studentCount()}} </span>
-                            <span class="">تعداد  دانشجویان</span>
+                            <span class="">Number of Students</span>
                         </div>
 
                     </div>
@@ -44,7 +44,7 @@
         <div class="container">
             <div class="box-filter">
                 <div class="b-head">
-                    <h2>دوره های {{$teacher->username}}</h2>
+                    <h2>Courses by {{$teacher->username}}</h2>
                 </div>
                 <div class="posts">
                     @foreach($teacherCourses as $coursesItem)
@@ -56,7 +56,7 @@
                                 @if($coursesItem->global_discount())
                                     <div class="discountBadge">
                                         <p>{{$coursesItem->discountPercent()}}%</p>
-                                        تخفیف
+                                        Discount
                                     </div>
                                 @endif
                                 <div class="card-img"><img src="{{$coursesItem->banner->thumb}}" alt="{{$coursesItem->title}}"></div>

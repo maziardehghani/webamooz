@@ -1,7 +1,7 @@
 <div class="box-filter">
     <div class="b-head">
         <h2>پر مخاطب ترین دوره ها</h2>
-        <a href="{{route('all_courses')}}">مشاهده همه</a>
+        <a href="{{route('all_courses')}}">view all</a>
     </div>
     <div class="posts">
         @foreach($mostViewCourses as $coursesItem)
@@ -13,7 +13,7 @@
                     @if($coursesItem->global_discount())
                         <div class="discountBadge">
                             <p>{{$coursesItem->discountPercent()}}%</p>
-                            تخفیف
+                            discount
                         </div>
                     @endif
                     <div class="card-img"><img src="{{$coursesItem->banner->thumb}}" alt="{{$coursesItem->title}}"></div>

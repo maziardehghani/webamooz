@@ -83,7 +83,7 @@
                         <td><a href="">{{$payment->amount}}</a></td>
                         <td><a href="">{{$payment->seller_share}}</a></td>
                         <td><a href="">{{$payment->site_share}}</a></td>
-                        <td><a href="">{{$payment->paymentable->title}}</a></td>
+                        <td><a href="">{{$payment->paymentable?->title}}</a></td>
                         <td><a href=""> {{verta($payment->created_at)}}</a></td>
                         <td><a href="" class="{{$payment->status == \Modules\Payment\Models\Payment::STATUS_SUCCESS? 'text-success':'text-error'}}">{{$payment->status}}</a></td>
                         <td>

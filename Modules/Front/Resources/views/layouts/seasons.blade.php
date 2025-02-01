@@ -4,7 +4,7 @@
             <div class="episodes-list-group-head">
                 <div class="head-right">
                     <div class="section-title">{{$season->title}}</div>
-                    <span class="episode-count"> {{count($season->lessons)}} ویدیو </span>
+                    <span class="episode-count"> {{count($season->lessons)}} video </span>
                 </div>
                 <div class="head-left"></div>
             </div>

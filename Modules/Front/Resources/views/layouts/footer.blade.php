@@ -1,31 +1,17 @@
 <footer>
     <a class="scrollToTop"></a>
-{{--    <div class="container">--}}
-{{--        <div class="f-links">--}}
-{{--            <div class="col--2"><a href="">خدمات هاستینگ بستلا</a></div>--}}
-{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
-{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
-{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
-{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
-{{--            <div class="col--2"><a href="">لینک اول</a></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+
     <div class="line"></div>
     <div class="container">
         <div class="f-about">
             <div class="col--8">
                 <p>
-                    جوهر مرجعی تخصصی برای یادگیری طراحی و برنامه نویسی وب و موبایل است. ما در جوهر با بهره گیری از
-                    نیروهای متخصص، باتجربه تمام تلاش خود را برای تهیه و تولید آموزش های با کیفیت و کامل و حرفه ای انجام
-                    می دهیم. باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های
-                    آموزشی، در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. امید است که
-                    با همراهی هر چه بیشتر شما کاربران عزیز در این راه، ما را برای حرکتی قدرتمند در مسیر این هدف باارزش
-                    یاری دهید.
+                    webamooz is a specialized reference for learning web and mobile design and programming. At webamooz, we strive to create and produce high-quality, comprehensive, and professional educational content by utilizing expert and experienced professionals. We believe that Iranian users deserve the best, and the most up-to-date educational videos should be made available to them, enabling them to progress quickly and become among the best. We hope that, with your continued support, you will assist us in making a powerful move toward this valuable goal.
                 </p>
             </div>
         </div>
     </div>
     <div class="johar">
-       <a href="{{route('Front.index')}}">جوهر</a>
+        <a href="{{route('Front.index')}}">webamooz</a>
     </div>
 </footer>

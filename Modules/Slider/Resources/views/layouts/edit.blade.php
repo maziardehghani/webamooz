@@ -48,7 +48,7 @@
                 </div>
                 @enderror
 
-                <a href=""><img class="img__slideshow" src="{{$slider->banner->thumb}}" alt=""></a>
+                <a href=""><img class="img__slideshow" src="{{$slider->banner?->thumb}}" alt=""></a>
                     <div class="file-upload">
                     <div class="i-file-upload">
                         <span>آپلود تصویر</span>

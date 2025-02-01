@@ -1,7 +1,7 @@
 <div class="box-filter">
     <div class="b-head">
-        <h2>جدید ترین دوره ها</h2>
-        <a href="{{route('all_courses')}}">مشاهده همه</a>
+        <h2>newest courses</h2>
+        <a href="{{route('all_courses')}}">view all</a>
     </div>
     <div class="posts">
 
