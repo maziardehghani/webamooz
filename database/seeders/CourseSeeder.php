@@ -59,7 +59,7 @@ class CourseSeeder extends Seeder
                 'priority' => $faker->optional()->randomFloat(2, 1, 10),
                 'price' => (string) $faker->randomFloat(2, 10, 500),
                 'percent' => (string) $faker->numberBetween(0, 100),
-                'type' => $faker->randomElement(Courses::$types),
+                'type' => 'cash',
                 'status' => $faker->randomElement(Courses::$statuses),
                 'confirmation_status' => Courses::CONFIRMATION_STATUS_ACCEPTED,
                 'description' => $course['description'],
@@ -73,7 +73,7 @@ class CourseSeeder extends Seeder
             for ($i = 0; $i < $seasonCount; $i++) {
                 $season = Season::query()->create([
                     'course_id' => $course->id, // Random course ID
-                    'user_id' => 1, // Random user ID
+                    'user_id' => $faker->randomElement($allUserIds), // Random user ID
                     'title' => 'Season ' . ($i + 1), // Dynamic title
                     'number' => $i + 1, // Sequential season number
                     'confirmation_status' => Season::CONFIRMATION_STATUS_ACCEPTED, // Default confirmation status
@@ -89,7 +89,8 @@ class CourseSeeder extends Seeder
                     // Generate lesson data for each iteration
                     Lesson::query()->create([
                         'course_id' => $course->id, // Random course ID
-                        'user_id' => 1, // Random user ID
+                        'user_id' => $faker->randomElement($allUserIds), // Random user ID
+                        // Random user ID
                         'season_id' => $season->id ?? null, // Random season ID or null
                         'media_id' => 1, // Random media ID or null
                         'free' => false,

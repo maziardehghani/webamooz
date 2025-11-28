@@ -34,10 +34,10 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public static $defaultUsers = [
-     [   'name' => 'maziar',
+     [   'name' => 'rechard aniston',
          'email' => 'maziardehghani1380@gmail.com',
          'password' => '75640213' ,
-         'username' => 'مازیار دهقانی' ,
+         'username' => 'rechard aniston' ,
          'permissions' => [Permission::PERMISSION_SUPER_ADMIN, Permission::PERMISSION_TEACHER],
          ]
     ];

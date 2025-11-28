@@ -2,12 +2,15 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 use Modules\User\Models\User;
+use Illuminate\Database\Seeder;
 use Modules\Media\Models\Media;
+use Illuminate\Http\UploadedFile;
+use Modules\RolePermissions\Models\Permission;
+
+use Modules\Media\Services\MediaFileService;
 
 class UserSeeders extends Seeder
 {
@@ -24,12 +27,11 @@ class UserSeeders extends Seeder
         // Define how many users you want to create
         $userCount = 9;
 
-        $users = [];
 
         // Loop to generate multiple users
         for ($i = 0; $i < $userCount; $i++) {
-            $users[] = [
-                'image_id' => 1, // Random media ID or null
+            $user = User::create([
+                'image_id' => $i+1, // Random media ID or null
                 'name' => $faker->name, // Random name
                 'email' => $faker->unique()->safeEmail, // Random unique email
                 'username' => $faker->userName, // Random username
@@ -43,14 +45,30 @@ class UserSeeders extends Seeder
                 'facebook' => $faker->url, // Random Facebook URL
                 'status' => $faker->randomElement(\Modules\User\Models\User::$statuses), // Random status from available statuses
                 'email_verified_at' => now(), // Setting email as verified
-                'password' => bcrypt('password'), // Default password (bcrypt'd)
+                'password' => bcrypt('123'), // Default password (bcrypt'd)
                 'remember_token' => Str::random(10), // Random remember token
                 'created_at' => now(),
                 'updated_at' => now(),
-            ];
-        }
+            ]);
 
-        // Insert all generated users at once
-        DB::table('users')->insert($users);
+
+            $profile = public_path("img/usersProfile/person".($i+1).".jpeg");
+            $uploadedFile = new UploadedFile(
+                $profile,
+                basename($profile),
+                null,
+                null,
+                true // این فایل واقعی هست
+            );
+
+            $media = MediaFileService::uploadPublic($uploadedFile);
+
+            $user->image_id = $media->id;
+            $user->save();
+
+            $user->givePermissionTo([Permission::PERMISSION_SUPER_ADMIN, Permission::PERMISSION_TEACHER])->markEmailAsVerified();
+
+
+        }
     }
 }

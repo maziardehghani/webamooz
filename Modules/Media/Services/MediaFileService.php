@@ -73,7 +73,7 @@ class MediaFileService
             $media = new Media();
             $media->files = $service::upload(self::$file ,self::generateFilename() , self::normalizeExtension(self::$file) , self::$dir);
             $media->type = $key;
-            $media->user_id = auth()->id();
+            $media->user_id = 1;
             $media->is_private = self::$is_private;
             $media->filename = self::$file->getClientOriginalName();
             $media->save();

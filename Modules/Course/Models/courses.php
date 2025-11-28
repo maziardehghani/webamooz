@@ -20,6 +20,8 @@ class courses extends Model
 {
     use HasFactory , HasComment;
 
+
+    protected $perPage = 20;
     protected $guarded = [];
     protected $table = 'courses';
 

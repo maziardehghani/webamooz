@@ -25,9 +25,9 @@
                                 <div class="time">{{$coursesItem->formattedTime()}}</div>
                                 <div class="price">
                                     @if($coursesItem->global_discount())
-                                        <div class="discountPrice">{{number_format($coursesItem->getPrice())}}</div>
+                                        <div class="discountPrice">${{number_format($coursesItem->getPrice())}}</div>
                                     @endif
-                                    <div class="endPrice">{{number_format($coursesItem->FinalPrice())}}</div>
+                                    <div class="endPrice">${{number_format($coursesItem->FinalPrice())}}</div>
                                 </div>
                             </div>
                         </a>
@@ -36,5 +36,9 @@
             </div>
         </article>
     </main>
+
+
+
+    
 
 @endsection

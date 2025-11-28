@@ -99,7 +99,7 @@ class UserController extends Controller
 
         $media = MediaFileService::uploadPublic($request->file('user_photo'));
         if (auth()->user()->image_id)
-            auth()->user()->image->delete();
+            auth()->user()?->image?->delete();
         auth()->user()->image_id = $media->id;
         auth()->user()->save();
         return back();

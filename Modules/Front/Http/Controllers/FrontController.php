@@ -30,8 +30,9 @@ class FrontController extends Controller
         $sliders = $this->sliderRepository->get_Banners();
         $adds = $this->sliderRepository->Adds();
         $latestCourses = $this->courseRepository->latestCourses();
+        $teachers = $this->userRepository->getTeachers();
 
-        return view('front::index' , compact(['sliders', 'adds' , 'latestCourses']));
+        return view('front::index' , compact(['sliders', 'adds' , 'latestCourses', 'teachers']));
     }
     public function search()
     {
