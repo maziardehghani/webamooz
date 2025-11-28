@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/font/font.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}" media="(max-width:991px)">
 
-    <title>صفحه ثبت نام</title>
+    <title>  Login </title>
 </head>
 <body>
 <main>

@@ -1,6 +1,6 @@
 <di class="sidebar-banners">
 
-    <div class="sidebar-pic">
+    {{-- <div class="sidebar-pic">
         <a href="{{route('Front.index')}}"><img src="{{asset('img/telgram.png')}}" alt="کانال تلگرام"></a>
     </div>
 
@@ -15,5 +15,5 @@
     </div>
     <div class="sidebar-pic">
         <a href="{{route('Front.index')}}"><img src="{{asset('img/blog-pic.png')}}" alt="کانال تلگرام"></a>
-    </div>
+    </div> --}}
 </di>

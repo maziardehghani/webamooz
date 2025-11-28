@@ -2,13 +2,15 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Faker\Factory as Faker;
-use Modules\Course\Models\Courses;
+use Illuminate\Support\Str;
+use Illuminate\Database\Seeder;
 use Modules\Course\Models\Lesson;
 use Modules\Course\Models\Season;
+use Illuminate\Support\Facades\DB;
+use Modules\Course\Models\Courses;
+use Modules\Category\Models\Category;
+use Modules\User\Models\User;
 
 class CourseSeeder extends Seeder
 {
@@ -43,11 +45,14 @@ class CourseSeeder extends Seeder
             ['title' => 'WordPress Theme Development', 'description' => 'Design and develop custom WordPress themes from scratch using PHP and JavaScript.'],
             ['title' => 'UI/UX Design for Web & Mobile', 'description' => 'Master UI/UX principles and create stunning web and mobile interfaces using Figma and Adobe XD.'],
         ];
+        $allCategoryIds = Category::pluck('id')->toArray();
+        $allUserIds = User::pluck('id')->toArray();
+
 
         foreach ($courses as $course) {
             $course = Courses::query()->create([
-                'teacher_id' => 1, // Assuming a single teacher for simplicity
-                'category_id' => 1,
+                'teacher_id' => $faker->randomElement($allUserIds), // Random user instead of fixed teacher_id
+                'category_id' => $faker->randomElement($allCategoryIds), // Random category
                 'banner_id' => $faker->optional()->numberBetween(1, 50),
                 'title' => $course['title'],
                 'slug' => Str::slug($course['title']),
@@ -87,7 +92,7 @@ class CourseSeeder extends Seeder
                         'user_id' => 1, // Random user ID
                         'season_id' => $season->id ?? null, // Random season ID or null
                         'media_id' => 1, // Random media ID or null
-                        'free' => (bool)rand(0, 1), // Random boolean for 'free'
+                        'free' => false,
                         'title' => 'Lesson ' . ($j + 1),
                         'number' => (string)($j + 1),
                         'slug' => Str::slug('Lesson ' . ($j + 1)),

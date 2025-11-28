@@ -126,7 +126,7 @@
 .main-menu.has-sub > a:before {
     content: '';
     position: absolute;
-    background: #f0e68c;
+    background: #474747;
     width: 10px;
     height: 2px;
     top: 21px;
@@ -137,7 +137,7 @@
 .main-menu.has-sub > a:after {
     content: '';
     position: absolute;
-    background: #f0e68c;
+    background: #474747;
     width: 2px;
     height: 10px;
     top: 17px;
@@ -156,7 +156,7 @@
 }
 
 .sub-menu > div > div a:hover {
-    background-color: #f0e68c;
+    background-color: #46b2f0;
     color: #fff !important
 }
 
@@ -293,9 +293,7 @@
     height: 270px !important;
     max-height: 270px;
 }
-.product-info-box .buy:hover::before{
-    width: 2000px;
-}
+
 @media (max-width: 880px) {
     .card-img {
         height: 240px !important;
@@ -400,8 +398,7 @@
     }
 
     .posts .col, .articles .col {
-        width: calc(101% - 25px);
-    !important;
+        width: calc(101% - 25px) !important;
         -ms-flex: 0 0 calc(101% - 25px);
         -webkit-box-flex: 0;
         -ms-flex-positive: 0;

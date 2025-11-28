@@ -45,7 +45,7 @@
                                     @endif
                                     <p class="price">
                         <span class="woocommerce-Price-amount amount">{{number_format($course->FinalPrice())}}
-                            <span class="woocommerce-Price-currencySymbol">Toman</span>
+                            <span class="woocommerce-Price-currencySymbol">$</span>
                         </span>
                                     </p>
                                 </div>
@@ -59,7 +59,7 @@
                                 @endif
                                 <p class="price">
                         <span class="woocommerce-Price-amount amount">{{number_format($course->FinalPrice())}}
-                            <span class="woocommerce-Price-currencySymbol">Toman</span>
+                            <span class="woocommerce-Price-currencySymbol">$</span>
                         </span>
                                 </p>
                             </div>

@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
         UserTableSeeders::class,
         CategorySeeder::class,
         SliderSeeder::class,
-        CourseSeeder::class,
         UserSeeders::class,
-        PaymentSeeder::class
+        CourseSeeder::class,
+        PaymentSeeder::class,
+
     ];
 
     public function run()
