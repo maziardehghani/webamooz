@@ -1,5 +1,6 @@
 @extends('front::layouts.master')
 @section('content')
+
     <main id="index">
         <article class="container article">
             <div class="posts">
@@ -39,6 +40,6 @@
 
 
 
-    
+
 
 @endsection

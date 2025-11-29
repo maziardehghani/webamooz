@@ -108,7 +108,7 @@
 
     .endPrice {
         font-weight: bold;
-        color: #ff6b6b;
+        color: #fff;
     }
 
     /* --- Features Section --- */
