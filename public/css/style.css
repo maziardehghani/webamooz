@@ -119,6 +119,10 @@ a, span {
     margin-left: 24px;
 }
 
+.ml-5{
+    margin-left: 16px;
+}
+
 .t-header-logo a {
     height: 44px;
     display: block;
@@ -3113,6 +3117,26 @@ footer {
 
 
 }
+
+
+@media (max-width: 768px) {
+
+    .main-row {
+        flex-direction: column !important;
+    }
+
+    .sidebar-right,
+    .main-row .content-left {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    .sidebar-right {
+        order: -1; /* سایدبار بیاد بالا */
+        margin-bottom: 15px;
+    }
+}
+
 
 .top-info {
     display: -ms-flexbox;

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="fa" dir="rtl">
 @include('front::layouts.head')
 <body>
 @include('front::layouts.header')

@@ -75,6 +75,7 @@ class courses extends Model
         return (new CourseRepository())->getDuration($this->id);
 
     }
+    
     public function formattedTime()
     {
         $time = $this->timeDuration();

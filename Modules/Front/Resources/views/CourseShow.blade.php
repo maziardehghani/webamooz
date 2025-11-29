@@ -93,29 +93,29 @@
                         {{--                            </div>--}}
                         {{--                        </div>--}}
                     </div>
-                    <div class="product-info-box">
+                    <div class="product-info-box" dir="ltr">
                         <div class="product-meta-info-list">
                             <div class="total_sales">
                                 Students: <span>{{ count($course->student) }}</span>
                             </div>
                             <div class="meta-info-unit one">
-                                <span class="title">Number of Published Sessions:  </span>
+                                <span class="title ml-5">Number of Published Sessions:  </span>
                                 <span class="value">{{$course->lessonsCount()}}</span>
                             </div>
                             <div class="meta-info-unit three">
-                                <span class="title">Total Course Duration: </span>
-                                <span class="value">{{$course->formattedTime()}}</span>
+                                <span class="title ml-5">Total Course Duration: </span>
+                                <span class="value">{{$course->timeDuration()}} m</span>
                             </div>
                             <div class="meta-info-unit four">
-                                <span class="title">Instructor: </span>
+                                <span class="title ml-5">Instructor: </span>
                                 <span class="value">{{$course->teacher->name}}</span>
                             </div>
                             <div class="meta-info-unit five">
-                                <span class="title">Course Status: </span>
+                                <span class="title ml-5">Course Status: </span>
                                 <span class="value">@lang($course->status)</span>
                             </div>
                             <div class="meta-info-unit six">
-                                <span class="title">Support: </span>
+                                <span class="title ml-5">Support: </span>
                                 <span class="value">Available</span>
                             </div>
                         </div>
@@ -159,21 +159,92 @@
                     <a href=" @can('download' , $lessonVideo){{$lessonVideo->downloadLink()}}@endcan" class="episode-download ">Download this episode (Episode {{$lessonVideo->number}})</a>
                 @endif
 
+                <div class="preview">
+                    <video width="100%" controls poster="{{$course->thumb}}">
+                        <source  type="video/mp4">
+                    </video>
+                </div>
+                <a href="#" class="episode-download">Download this episode (Episode 1)</a>
+
                 <div class="course-description">
                     <div class="course-description-title">Course Description</div>
-                    <div>
-                        {!! $course->description !!}
+
+                    <p>
+                        In this article, we will learn what ReactJS is and why we should use it instead of other JavaScript frameworks
+                        such as Angular.
+                    </p>
+
+                    <p>
+                        ReactJS is an open-source JavaScript library for building user interfaces, especially for
+                        <a href="" target="_blank" rel="noopener nofollow">single-page applications</a>.
+                        This library is mainly used for handling the View layer of web applications.
+                        React also allows us to build reusable UI components.
+                        React was originally created by Jordan Walke, a software engineer at Facebook.
+                        It was first used in Facebook in 2011 and later adopted by Instagram in 2012.
+                    </p>
+
+                    <p>
+                        React enables developers to build large-scale web applications that can update data without reloading
+                        the page.
+                        The main goals of React are simplicity, speed, and scalability.
+                        React focuses only on the user interface and fits into the View layer of the MVC architecture.
+                        This library can be used together with other JavaScript frameworks and libraries such as Angular.
+                    </p>
+
+                    <h2>What are the features of ReactJS?</h2>
+
+                    <p>Let’s take a look at the most important features of React:</p>
+
+                    <p><strong>JSX</strong></p>
+                    <p>
+                        In React, JSX is used for templating instead of plain JavaScript.
+                        JSX is a JavaScript syntax extension that allows you to write HTML-like code inside JavaScript to create DOM components.
+                    </p>
+
+                    <p>
+                        <img alt="JavaScript Tutorial" src="img/banner/lara.png">
+                    </p>
+
+                    <p><strong>React Native</strong></p>
+                    <p>
+                        React Native is a JavaScript framework for developing native mobile applications for both Android and iOS,
+                        introduced in 2015.
+                        It is based on JavaScript and the React library.
+                        This means if you have mastered React, you will have a head start in learning React Native.
+                        Note that there are important differences between React and React Native.
+                        To understand these differences, we recommend reading
+                        <a href="" target="_blank" rel="noopener nofollow">the main differences between React and React Native</a>.
+                    </p>
+
+                    <p><strong>Single-way data flow</strong></p>
+                    <p>
+                        In React, immutable values are passed between components as properties (props).
+                        Components cannot directly modify these properties.
+                        Instead, they can pass data to callback functions, which handle the changes.
+                        This concept is known as:
+                        “properties flow down; actions flow up”.
+                    </p>
+
+                    <p><strong>Virtual Document Object Model (DOM)</strong></p>
+                    <p>
+                        React creates an in-memory cache structure called Virtual DOM.
+                        When a change occurs, React updates only the components that have changed instead of re-rendering the entire page.
+                        The Virtual DOM is a tree structure similar to the real DOM, containing elements, attributes, and content as objects.
+                        The render() method builds a tree of React components,
+                        and when a component changes, the related node in the tree is updated.
+                    </p>
+
+                    <div class="tags">
+                        <ul>
+                            <li><a href="">React</a></li>
+                            <li><a href="">reactjs</a></li>
+                            <li><a href="">JavaScript</a></li>
+                            <li><a href="">javascript</a></li>
+                            <li><a href="">What is ReactJS</a></li>
+                        </ul>
                     </div>
-                    {{--                    <div class="tags">--}}
-                    {{--                        <ul>--}}
-                    {{--                            <li><a href="">React</a></li>--}}
-                    {{--                            <li><a href="">reactjs</a></li>--}}
-                    {{--                            <li><a href="">JavaScript</a></li>--}}
-                    {{--                            <li><a href="">javascript</a></li>--}}
-                    {{--                            <li><a href="">What is reactjs</a></li>--}}
-                    {{--                        </ul>--}}
-                    {{--                    </div>--}}
                 </div>
+
                 <div class="episodes-list">
                     <div class="episodes-list--title">Episode List</div>
                     @include('front::layouts.seasons')
