@@ -36,7 +36,7 @@
                 @guest()
                     <div class="login-register-btn ">
                         <div><a class="btn-login" href="{{route('login')}}">Login</a></div>
-                        <div><a class="btn-register" href="{{route('register')}}">Register</a></div>
+                        <div><a class="btn-register" href="{{route('login')}}">Register</a></div>
                     </div>
                 @endguest
             </div>

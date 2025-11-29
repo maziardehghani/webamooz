@@ -2,7 +2,6 @@
     <style>
         /* --- Testimonials --- */
         .testimonials {
-            background: #f4f5f7;
             padding: 50px 20px;
             display: flex;
             flex-wrap: wrap;
@@ -11,7 +10,6 @@
         }
 
         .testimonial-card {
-            background: #fff;
             border-radius: 15px;
             padding: 30px 20px;
             width: 300px;
@@ -44,7 +42,6 @@
         }
 
         .category-card {
-            background: #fff;
             padding: 20px 15px;
             border-radius: 15px;
             text-align: center;
@@ -66,7 +63,6 @@
         /* --- Blog / Tips Section --- */
         .blog-section {
             padding: 50px 20px;
-            background: #fff;
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
@@ -74,7 +70,6 @@
         }
 
         .blog-card {
-            background: #f4f5f7;
             border-radius: 15px;
             width: 300px;
             overflow: hidden;
@@ -101,7 +96,6 @@
         /* --- CTA Section --- */
         .cta-section {
             background: #1e90ff;
-            color: #fff;
             text-align: center;
             padding: 50px 20px;
             border-radius: 15px;

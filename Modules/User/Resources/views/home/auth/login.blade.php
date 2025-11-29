@@ -35,17 +35,18 @@
             <button class="btn btn--login">Login</button>
 
             <div class="recover-password">
-                <a style="color: #10430a" href="{{ 'forgot-password' }}">
+                {{-- <a style="color: #10430a" href="{{ 'forgot-password' }}">
                     Forgot Password?
-                </a>
+                </a> --}}
             </div>
         </div>
 
         <div class="form-footer">
-            <a style="color: #10430a" href="{{ route('register') }}">
+            {{-- <a style="color: #10430a" href="{{ route('register') }}">
                 Create an Account
-            </a>
+            </a> --}}
         </div>
 
     </form>
 @endsection
+

@@ -3139,15 +3139,13 @@ footer {
 
 
 .top-info {
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: flex;
-    flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
+    display: block; /* دیگر فلکس چند ستونه نیست */
     margin-bottom: 15px;
-    justify-content: space-between;
-
+    width: 100%;
+    overflow-x: auto; /* برای موبایل اسکرول */
+    -webkit-overflow-scrolling: touch; /* اسکرول نرم در موبایل */
 }
+
 
 .optionals {
     width: 26%;

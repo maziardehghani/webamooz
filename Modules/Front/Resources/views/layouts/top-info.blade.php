@@ -1,5 +1,59 @@
 
 <style>
+    /* --- Stats Horizontal Bar --- */
+.stats {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #1e90ff, #3742fa);
+    padding: 20px;
+    border-radius: 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    overflow-x: auto;        /* موبایل = اسکرول افقی */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.stats::-webkit-scrollbar {
+    display: none;
+}
+
+/* هر آیتم نوار آمار */
+.stat-box {
+    min-width: 140px;
+    flex: 0 0 auto;
+
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    text-align: center;
+    padding: 14px 10px;
+    border-radius: 10px;
+
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.25);
+}
+
+/* شماره آمار */
+.stat-box h2 {
+    font-size: 22px;
+    margin: 0 0 6px;
+    font-weight: bold;
+}
+
+/* متن زیر عدد */
+.stat-box p {
+    font-size: 13px;
+    margin: 0;
+    opacity: 0.9;
+}
+
     /* --- Banner Section --- */
     .top-banner {
         width: 100%;
@@ -72,11 +126,6 @@
     <!-- --- Slideshow HTML --- -->
     <div class="top-info">
 
-        <div class="optionals">
-            @foreach($adds as $add)
-                <div><img src="{{$add->banner?->original}}" alt=""></div>
-            @endforeach
-        </div>
 
         <div class="stats">
             <div class="stat-box">
@@ -111,7 +160,7 @@
     <style>
         /* --- Teachers Slider با اسکرول مخفی --- */
         .teachers-slider {
-            background: #fff;
+
             padding: 40px 20px;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
 

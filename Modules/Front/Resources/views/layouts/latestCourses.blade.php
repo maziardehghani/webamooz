@@ -21,7 +21,6 @@
     }
 
     .card {
-        background: #fff;
         border-radius: 15px;
         overflow: hidden;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -144,39 +143,7 @@
         color: #666;
     }
 
-    /* --- Stats Section --- */
-    .stats {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-        padding: 50px 20px;
-    }
-
-    .stat-box {
-        background: #1e90ff;
-        color: #fff;
-        border-radius: 15px;
-        width: 200px;
-        padding: 30px 20px;
-        text-align: center;
-        transition: transform 0.3s;
-    }
-
-    .stat-box:hover {
-        transform: translateY(-8px);
-    }
-
-    .stat-box h2 {
-        font-size: 36px;
-        margin: 0;
-    }
-
-    .stat-box p {
-        margin: 5px 0 0;
-        font-size: 16px;
-    }
-
+   
     </style>
 
 
